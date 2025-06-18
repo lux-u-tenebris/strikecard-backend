@@ -36,16 +36,17 @@ jobs:
           fi
 
           IFS=' ' read -r -a GLOBS_ARRAY <<< "$GLOBS_STRING"
-          JSON_GLOBS="["
-          for i in "${!GLOBS_ARRAY[@]}"; do
-            JSON_GLOBS+="\"${GLOBS_ARRAY[$i]}\""
-            if [ "$i" -lt $(( ${#GLOBS_ARRAY[@]} - 1 )) ]; then
-              JSON_GLOBS+=","
+          NEWLINE_DELIMITED_GLOBS=""
+          for glob in "${GLOBS_ARRAY[@]}"; do
+            if [ -n "$NEWLINE_DELIMITED_GLOBS" ]; then
+              NEWLINE_DELIMITED_GLOBS+=$'\n'
             fi
+            NEWLINE_DELIMITED_GLOBS+="$glob"
           done
-          JSON_GLOBS+="]"
 
-          echo "globs=$JSON_GLOBS" >> "$GITHUB_OUTPUT"
+          echo "globs<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$NEWLINE_DELIMITED_GLOBS" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
       - uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e # 20.0.0
         with:
           config: ".markdownlint-cli2.jsonc"
