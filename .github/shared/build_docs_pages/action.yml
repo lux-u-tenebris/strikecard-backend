@@ -20,7 +20,7 @@ runs:
       shell: bash
 
     - name: Install Dependencies
-      run: pip install -r "mkdocs-requirements.txt" --prefix "./.venv/"
+      run: pip install -r "mkdocs-requirements.txt"
       shell: bash
 
     - name: Build Pages # this is both a build and check step
