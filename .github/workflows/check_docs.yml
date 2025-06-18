@@ -12,8 +12,7 @@ jobs:
   check_markdown:
     uses: "./.github/workflows/reusable_check_markdown.yml"
     with:
-      globs: |
-        "docs/**/*.md"
+      globs: "docs/**/*.md"
   check_docs:
     needs: check_markdown
     runs-on: ubuntu-latest
