@@ -29,6 +29,8 @@ jobs:
       - name: Configure Globs
         id: globs
         run: |
+          ## ALL of this is necessary to construct a multiline for markdownlint-cli2
+
           if [ -n "${{ inputs.globs }}" ]; then
             GLOBS_STRING="${{ inputs.globs }}"
           else
