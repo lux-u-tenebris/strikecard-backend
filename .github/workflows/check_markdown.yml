@@ -6,12 +6,15 @@ on: # yamllint disable-line rule:truthy
       - main
     paths:
       - "**.md"
+      - "!docs/**"
   pull_request:
     branches:
       - main
     paths:
       - "**.md"
+      - "!docs/**"
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   check_markdown:
@@ -23,4 +26,6 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e # 20.0.0
         with:
           config: ".markdownlint-cli2.jsonc"
-          globs: "**/*.md"
+          globs: |
+            "**/*.md"
+            "!(docs)/**/*.md"
