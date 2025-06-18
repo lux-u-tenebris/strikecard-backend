@@ -20,9 +20,10 @@ repos:
     hooks:
       - id: markdownlint-cli2
         require_serial: true
+        args: [--config, ".markdownlint-cli2.jsonc"]
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.37.1
     hooks:
       - id: yamllint
-        args: [-c, .yamllint.yaml, --strict]
+        args: [-c, ".yamllint.yaml", --strict]
