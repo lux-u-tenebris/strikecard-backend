@@ -35,4 +35,4 @@ jobs:
         with:
           config: ".markdownlint-cli2.jsonc"
           globs: |
-            "${{ steps.globs.outputs.globs }}"
+            ${{ steps.globs.outputs.globs }}
