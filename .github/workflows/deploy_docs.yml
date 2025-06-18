@@ -9,7 +9,14 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
+  check_markdown:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: "./.github/workflows/check_markdown.yml"
   deploy_docs:
+    needs: check_markdown
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
