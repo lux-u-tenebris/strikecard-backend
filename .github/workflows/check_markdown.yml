@@ -19,10 +19,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: "./.github/shared/setup/checkout.yaml"
+      - uses: "./.github/shared/checkout/"
 
       - name: Markdown Lint
         uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e # 20.0.0
         with:
-          config: .markdownlint-cli2.jsonc
+          config: ".markdownlint-cli2.jsonc"
           globs: "**/*.md"

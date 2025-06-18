@@ -14,4 +14,4 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: "./.github/shared/setup/build_docs_pages.yml"
+      - uses: "./.github/shared/build_docs_pages/"

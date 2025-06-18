@@ -16,7 +16,7 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: "./.github/shared/setup/build_docs_pages.yaml"
+      - uses: "./.github/shared/build_docs_pages/"
 
       - name: Setup
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # 5.0.0
@@ -24,7 +24,7 @@ jobs:
       - name: Upload
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # 3.0.1
         with:
-          path: ./site
+          path: "./site"
 
   deploy:
     environment:
