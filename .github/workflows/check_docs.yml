@@ -9,7 +9,15 @@ on: # yamllint disable-line rule:truthy
   workflow_dispatch:
 
 jobs:
+  check_markdown:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
+      - uses: "./.github/workflows/check_markdown.yml"
   check_docs:
+    needs: check_markdown
     runs-on: ubuntu-latest
     permissions:
       contents: read
