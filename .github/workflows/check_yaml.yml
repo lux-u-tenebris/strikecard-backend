@@ -18,13 +18,12 @@ on: # yamllint disable-line rule:truthy
 jobs:
   check:
     runs-on: ubuntu-latest
+    needs: checkout
     permissions:
       contents: read
     steps:
-      - uses: "./.github/shared/checkout/"
-
-      - name: YAML Lint
-        uses: karancode/yamllint-github-action@4052d365f09b8d34eb552c363d1141fd60e2aeb2 # 3.0.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
+      - uses: karancode/yamllint-github-action@4052d365f09b8d34eb552c363d1141fd60e2aeb2 # 3.0.0
         with:
           yamllint_config_filepath: ".yamllint.yaml"
           yamllint_strict: true

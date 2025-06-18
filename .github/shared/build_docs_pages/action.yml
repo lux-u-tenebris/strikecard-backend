@@ -1,11 +1,9 @@
-name: Mkdocs Build
-description: Mkdocs Build
+name: Build Docs Pages
+description: Build Docs Pages for mkdocs workflows.
 
 runs:
   using: composite
   steps:
-    - uses: "./.github/shared/checkout/"
-
     - name: Setup Python
       uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # 5.6.0
       with:
