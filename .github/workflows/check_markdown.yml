@@ -16,7 +16,6 @@ on: # yamllint disable-line rule:truthy
 jobs:
   check:
     runs-on: ubuntu-latest
-    needs: checkout
     permissions:
       contents: read
     steps:
