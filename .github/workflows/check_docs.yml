@@ -13,7 +13,7 @@ jobs:
     uses: "./.github/workflows/check_markdown.yml"
     with:
       globs: |
-        "!docs/**/*.md"
+        "docs/**/*.md"
   check_docs:
     needs: check_markdown
     runs-on: ubuntu-latest
