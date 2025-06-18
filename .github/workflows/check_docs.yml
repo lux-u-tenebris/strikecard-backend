@@ -1,0 +1,17 @@
+name: docs
+
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    needs: check
+    permissions:
+      contents: read
+    steps:
+      - uses: "./.github/shared/setup/build_docs_pages.yml"
