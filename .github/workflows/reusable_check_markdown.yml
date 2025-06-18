@@ -28,4 +28,4 @@ jobs:
           config: ".markdownlint-cli2.jsonc"
           globs: |
             "**/*.md"
-            "!(docs)/**/*.md"
+            "!docs/**/*.md"
