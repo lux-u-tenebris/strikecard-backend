@@ -40,5 +40,4 @@ jobs:
           config: ".markdownlint-cli2.jsonc"
           globs: |
             ${{ steps.globs.outputs.globs }}
-          ignores: |
             ${{ steps.globs.outputs.ignores }}
