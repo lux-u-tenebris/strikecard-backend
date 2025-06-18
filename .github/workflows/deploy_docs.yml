@@ -11,6 +11,9 @@ on: # yamllint disable-line rule:truthy
 jobs:
   check_markdown:
     uses: "./.github/workflows/check_markdown.yml"
+    with:
+      globs: |
+        "!docs/**/*.md"
   deploy_docs:
     needs: check_markdown
     environment:
