@@ -18,6 +18,9 @@ on: # yamllint disable-line rule:truthy
     inputs:
       globs:
         type: string
+        default: |
+          "**/*.md"
+          "!docs/**/*.md"
 
 jobs:
   check_markdown:
@@ -30,5 +33,4 @@ jobs:
         with:
           config: ".markdownlint-cli2.jsonc"
           globs: |
-            "**/*.md"
             ${{ inputs.globs }}
