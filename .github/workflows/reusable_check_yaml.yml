@@ -14,6 +14,7 @@ on: # yamllint disable-line rule:truthy
       - "**.yml"
       - "**.yaml"
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   check_yaml:
