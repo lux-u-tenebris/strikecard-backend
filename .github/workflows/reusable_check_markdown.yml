@@ -18,8 +18,6 @@ on: # yamllint disable-line rule:truthy
     inputs:
       globs:
         type: string
-      ignores:
-        type: string
 
 jobs:
   check_markdown:
@@ -31,13 +29,10 @@ jobs:
       - name: Configure Globs
         id: globs
         run: |
-          GLOBS="${{ github.event.inputs.globs || '' }}"
+          GLOBS="${{ github.event.inputs.globs || '**/*.md !docs/**/*.md' }}"
           echo "globs=$GLOBS" >> $GITHUB_OUTPUT
-          IGNORES="${{ github.event.inputs.ignores || 'docs/**/*.md' }}"
-          echo "ignores=$IGNORES" >> $GITHUB_OUTPUT
       - uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e # 20.0.0
         with:
           config: ".markdownlint-cli2.jsonc"
           globs: |
             ${{ steps.globs.outputs.globs }}
-            ${{ steps.globs.outputs.ignores }}
