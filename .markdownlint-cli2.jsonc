@@ -1,8 +1,5 @@
 {
   "fix": false,
-  "globs": [
-    "**/*.md"
-  ],
   "ignores": [
     ".git/"
   ]
