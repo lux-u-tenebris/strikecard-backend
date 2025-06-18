@@ -13,8 +13,14 @@ jobs:
     uses: "./.github/workflows/reusable_check_markdown.yml"
     with:
       globs: "docs/**/*.md"
+  check_yaml:
+    uses: "./.github/workflows/reusable_check_yaml.yml"
+    with:
+      globs: "docs/**/*.md"
   deploy_docs:
-    needs: check_markdown
+    needs:
+      - check_markdown
+      - check_yaml
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
