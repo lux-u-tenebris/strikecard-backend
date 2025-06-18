@@ -9,14 +9,18 @@ runs:
         python-version: 3.12
         cache: "pip"
 
-    - name: Install Dependencies
-      run: pip install -r "mkdocs-requirements.txt" --prefix "./.venv/"
+    - name: Configure venv
+      run: python3 -m venv "./.venv"
       shell: bash
 
     - name: Activate venv
       run: |
         . "./.venv/bin/activate"
         echo PATH=$PATH >> $GITHUB_ENV
+      shell: bash
+
+    - name: Install Dependencies
+      run: pip install -r "mkdocs-requirements.txt" --prefix "./.venv/"
       shell: bash
 
     - name: Build Pages # this is both a build and check step
