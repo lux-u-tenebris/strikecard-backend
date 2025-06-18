@@ -29,8 +29,23 @@ jobs:
       - name: Configure Globs
         id: globs
         run: |
-          GLOBS="${{ inputs.globs || '**.md !docs/**.md' }}"
-          echo "globs=$GLOBS" >> $GITHUB_OUTPUT
+          if [ -n "${{ inputs.globs }}" ]; then
+            GLOBS_STRING="${{ inputs.globs }}"
+          else
+            GLOBS_STRING='**/*.md !docs/**/*.md'
+          fi
+
+          IFS=' ' read -r -a GLOBS_ARRAY <<< "$GLOBS_STRING"
+          JSON_GLOBS="["
+          for i in "${!GLOBS_ARRAY[@]}"; do
+            JSON_GLOBS+="\"${GLOBS_ARRAY[$i]}\""
+            if [ "$i" -lt $(( ${#GLOBS_ARRAY[@]} - 1 )) ]; then
+              JSON_GLOBS+=","
+            fi
+          done
+          JSON_GLOBS+="]"
+
+          echo "globs=$JSON_GLOBS" >> "$GITHUB_OUTPUT"
       - uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e # 20.0.0
         with:
           config: ".markdownlint-cli2.jsonc"
