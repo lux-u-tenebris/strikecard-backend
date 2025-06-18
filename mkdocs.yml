@@ -48,6 +48,7 @@ nav:
   - Home: index.md
   - Blog:
       - blog/index.md
+  - Test: in_docs.md
 
 validation:
   nav:
