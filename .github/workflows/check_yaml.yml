@@ -21,7 +21,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: "./github/shared/setup/checkout.yaml"
+      - uses: "./.github/shared/setup/checkout.yaml"
 
       - name: YAML Lint
         uses: karancode/yamllint-github-action@4052d365f09b8d34eb552c363d1141fd60e2aeb2 # 3.0.0
