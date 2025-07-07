@@ -19,7 +19,9 @@ class BaseRole:
         except ValueError:
             return False
         method_name = f'{app_name}_can_{perm_name}'
-        return getattr(self, method_name, lambda obj: False)(obj=obj)
+        v = getattr(self, method_name, lambda obj: False)(obj=obj)
+        print(self, method_name, v)
+        return v
 
     def chapters_can_view_chapter(self, obj=None):
         return True
@@ -27,7 +29,16 @@ class BaseRole:
     def chapters_can_view_chapterrole(self, obj=None):
         return True
 
-    def chapters_can_add_chapterrole(self):
+    def chapters_can_add_chapterrole(self, obj=None):
+        return False
+
+    def chapters_can_add_owner(self, obj=None):
+        return False
+
+    def chapters_can_change_chapter(self, obj=None):
+        return False
+
+    def chapters_can_change_chapter_info(self, obj=None):
         return False
 
     def chapters_can_change_chapterrole(self, obj=None):
@@ -46,9 +57,6 @@ class BaseRole:
         return False
 
     def members_can_change_member(self, obj=None):
-        return False
-
-    def chapters_can_add_owner(self, obj=None):
         return False
 
     def get_permitted_member_fields(self, obj=None):
@@ -84,6 +92,9 @@ class Reporter(ReporterEmail, ReporterPhone):
 class Manager(Reporter):
     label = 'Manager'
 
+    def chapters_can_change_chapter(self, obj=None):
+        return True
+
     def members_can_change_member(self, member=None):
         return self.chapter == member.chapter
 
@@ -96,6 +107,9 @@ class Manager(Reporter):
 
 class Owner(Manager):
     label = 'Owner'
+
+    def chapters_can_change_chapter_info(self, obj=None):
+        return True
 
     def chapters_can_add_owner(self, obj=None):
         return True

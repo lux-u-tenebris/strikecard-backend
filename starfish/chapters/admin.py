@@ -14,6 +14,19 @@ from unfold.contrib.filters.admin import AutocompleteSelectMultipleFilter
 from starfish.admin import SoftDeletableAdminMixin, pretty_button
 
 
+class ChapterInlineMixin:
+
+    def get_formset(self, request, obj=None, **kwargs):
+        self.parent_obj = obj
+        return super().get_formset(request, obj, **kwargs)
+
+    def get_queryset(self, request):
+        queryset = self.model._default_manager.get_queryset()
+        if not self.has_view_or_change_permission(request, obj=self.parent_obj):
+            queryset = queryset.none()
+        return queryset
+
+
 class ChapterZipInline(TabularInline):
     model = ChapterZip
     fields = ['zip_code', 'county']
@@ -27,7 +40,7 @@ class ChapterZipInline(TabularInline):
         return obj.zip_code.county
 
 
-class ChapterRoleInline(TabularInline):
+class ChapterRoleInline(ChapterInlineMixin, TabularInline):
     model = ChapterRole
     readonly_fields = ['added_by_user']
     autocomplete_fields = ['user']
@@ -44,15 +57,11 @@ class ChapterRoleInline(TabularInline):
     def has_change_permission(self, request, obj=None):
         return request.user.has_perm('chapters.change_chapterrole', obj=obj)
 
+    def has_add_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.add_chapterrole', obj=obj)
+
     def has_delete_permission(self, request, obj=None):
         return request.user.has_perm('chapters.delete_chapterrole', obj=obj)
-
-    def get_queryset(self, request):
-        # TODO: how to get chapter obj?
-        queryset = super().get_queryset(request)
-        if not self.has_view_or_change_permission(request):
-            queryset = queryset.none()
-        return queryset
 
 
 class ChapterSocialLinkInline(TabularInline):
@@ -75,9 +84,11 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
     search_fields = ('title', 'slug')
     prepopulated_fields = {'slug': ['title']}
     autocomplete_fields = ['nearby_chapters']
-    readonly_fields = ('view_members_link',)
+    readonly_fields = [
+        'view_members_link',
+    ]
     compressed_fields = True
-    fields = (
+    fields = [
         'state',
         'title',
         'slug',
@@ -86,8 +97,7 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
         'description',
         'contact_email',
         'website_url',
-    )
-
+    ]
     inlines = [
         ChapterRoleInline,
         ChapterSocialLinkInline,
@@ -102,6 +112,11 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
         )
 
     view_members_link.short_description = 'Members'
+
+    def nearby_chapters_display(self, obj):
+        return ', '.join(str(c) for c in obj.nearby_chapters.all())
+
+    nearby_chapters_display.short_description = 'Nearby chapters'
 
     def has_view_permission(self, request, obj=None):
         return True
@@ -120,6 +135,26 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
         for obj in formset.deleted_objects:
             obj.delete()
         formset.save_m2m()
+
+    def get_fields(self, request, obj=None):
+        fields = self.fields.copy()
+        if not request.user.has_perm('chapters.change_chapter_info', obj=obj):
+            fields[3] = 'nearby_chapters_display'
+        return fields
+
+    def get_prepopulated_fields(self, request, obj=None):
+        if obj and not request.user.has_perm('chapters.change_chapter_info', obj=obj):
+            return {}
+        return self.prepopulated_fields
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj and not request.user.has_perm('chapters.change_chapter_info', obj=obj):
+            return (
+                [f.name for f in self.model._meta.fields]
+                + self.readonly_fields
+                + ['nearby_chapters_display']
+            )
+        return super().get_readonly_fields(request, obj)
 
 
 @admin.register(ChapterZip)
