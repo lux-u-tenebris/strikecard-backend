@@ -92,7 +92,12 @@ def pretty_button(url, title):
     )
 
 
-def pretty_link(url, title):
+def pretty_link(url, title, fmt=True):
+    link = f'<a class="text-primary-600 dark:text-primary-500" href="{url}">{title}</a>'
+    return format_html(link) if fmt else link
+
+
+def pretty_links(items):
     return format_html(
-        '<a class="text-primary-600 dark:text-primary-500" href="{}">{}</a>', url, title
+        ', '.join(pretty_link(url, title, fmt=False) for url, title in items)
     )

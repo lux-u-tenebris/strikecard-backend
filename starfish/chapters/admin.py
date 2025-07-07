@@ -11,7 +11,7 @@ from simple_history.admin import SimpleHistoryAdmin
 from unfold.admin import ModelAdmin, TabularInline
 from unfold.contrib.filters.admin import AutocompleteSelectMultipleFilter
 
-from starfish.admin import SoftDeletableAdminMixin, pretty_button
+from starfish.admin import SoftDeletableAdminMixin, pretty_button, pretty_links
 
 
 class ChapterInlineMixin:
@@ -114,7 +114,10 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
     view_members_link.short_description = 'Members'
 
     def nearby_chapters_display(self, obj):
-        return ', '.join(str(c) for c in obj.nearby_chapters.all())
+        return pretty_links(
+            (reverse('admin:chapters_chapter_change', args=[c.id]), c.title)
+            for c in obj.nearby_chapters.all()
+        )
 
     nearby_chapters_display.short_description = 'Nearby chapters'
 
