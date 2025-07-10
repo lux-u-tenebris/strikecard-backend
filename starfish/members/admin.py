@@ -67,14 +67,14 @@ class MemberAdmin(
     resource_class = MemberResource
     list_display = (
         'name',
-        'email',
+        'anonymous_email',
         'chapter',
         'leadership_score',
         'partner_campaign',
         'validated',
     )
     search_fields = ('name', 'email')
-    list_display_links = ('name', 'email')
+    list_display_links = ('name', 'anonymous_email')
     list_filter = (
         ('chapter', AutocompleteSelectMultipleFilter),
         ('partner_campaign', AutocompleteSelectMultipleFilter),
@@ -100,20 +100,12 @@ class MemberAdmin(
         formset.save_m2m()
 
     def has_view_permission(self, request, obj=None):
-        # TODO: use roles
         if obj:
-            return True
-        return False
+            return request.user.has_perm('members.view_member', obj=obj)
+        return self.get_queryset(request).count()
 
     def has_change_permission(self, request, obj=None):
-        # TODO: use roles
-        if obj:
-            return True
-        return False
-
-    def has_add_permission(self, request):
-        # TODO: use roles
-        return True
+        return request.user.has_perm('members.change_member', obj=obj)
 
     def has_delete_permission(self, request, obj=None):
         return False

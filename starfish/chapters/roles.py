@@ -5,8 +5,9 @@ class BaseRole:
     key = None
     label = None
 
-    def __init__(self, chapter=None):
-        self.chapter = chapter
+    def __init__(self, chapter_role=None):
+        self.chapter_role = chapter_role
+        self.chapter = chapter_role.chapter
         super().__init__()
 
     def __init_subclass__(cls, **kwargs):
@@ -19,15 +20,13 @@ class BaseRole:
         except ValueError:
             return False
         method_name = f'{app_name}_can_{perm_name}'
-        v = getattr(self, method_name, lambda obj: False)(obj=obj)
-        print(self, method_name, v)
-        return v
+        return bool(getattr(self, method_name, lambda obj: False)(obj=obj))
 
     def chapters_can_view_chapter(self, obj=None):
         return True
 
     def chapters_can_view_chapterrole(self, obj=None):
-        return True
+        return False
 
     def chapters_can_add_chapterrole(self, obj=None):
         return False
@@ -59,11 +58,14 @@ class BaseRole:
     def members_can_change_member(self, obj=None):
         return False
 
+    def members_can_add_member(self, obj=None):
+        return False
+
     def get_permitted_member_fields(self, obj=None):
         fields = []
-        if self.can_view_email():
+        if self.members_can_view_email():
             fields.append('email')
-        if self.can_view_phone():
+        if self.members_can_view_phone():
             fields.append('phone')
         return fields
 
@@ -95,8 +97,14 @@ class Manager(Reporter):
     def chapters_can_change_chapter(self, obj=None):
         return True
 
-    def members_can_change_member(self, member=None):
-        return self.chapter == member.chapter
+    def members_can_change_member(self, obj=None):
+        return self.chapter == obj.chapter
+
+    def members_can_add_member(self, obj=None):
+        return True
+
+    def chapters_can_view_chapterrole(self, obj=None):
+        return True
 
     def chapters_can_change_chapterrole(self, obj=None):
         return True

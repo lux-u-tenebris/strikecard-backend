@@ -103,6 +103,18 @@ class BaseMember(HashedMemberRecord):
             except Exception:
                 self.referer_host = None
 
+    def anonymous_email(self):
+        if not self.email or '@' not in self.email:
+            return None
+        name, domain = self.email.split('@', 1)
+        if len(name) <= 2:
+            masked = '*' * len(name)
+        else:
+            masked = name[0] + '*' * (len(name) - 2) + name[-1]
+        return f'{masked}@{domain}'
+
+    anonymous_email.short_description = 'E-mail'
+
 
 def _get_validation_expires():
     return now() + timedelta(days=7)

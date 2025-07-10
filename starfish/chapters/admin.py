@@ -26,8 +26,20 @@ class ChapterInlineMixin:
             queryset = queryset.none()
         return queryset
 
+    def has_view_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.view_chapter', obj=obj)
 
-class ChapterZipInline(TabularInline):
+    def has_change_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.change_chapter_info', obj=obj)
+
+    def has_add_permission(self, request, obj=None):
+        return self.has_change_permission(request, obj=obj)
+
+    def has_delete_permission(self, request, obj=None):
+        return self.has_change_permission(request, obj=obj)
+
+
+class ChapterZipInline(ChapterInlineMixin, TabularInline):
     model = ChapterZip
     fields = ['zip_code', 'county']
     autocomplete_fields = ['zip_code']
@@ -38,6 +50,15 @@ class ChapterZipInline(TabularInline):
 
     def county(self, obj):
         return obj.zip_code.county
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 class ChapterRoleInline(ChapterInlineMixin, TabularInline):
@@ -64,18 +85,21 @@ class ChapterRoleInline(ChapterInlineMixin, TabularInline):
         return request.user.has_perm('chapters.delete_chapterrole', obj=obj)
 
 
-class ChapterSocialLinkInline(TabularInline):
+class ChapterSocialLinkInline(ChapterInlineMixin, TabularInline):
     model = ChapterSocialLink
     extra = 1
     tab = True
     verbose_name = 'Link'
 
 
-class OfflineTotalInline(TabularInline):
+class OfflineTotalInline(ChapterInlineMixin, TabularInline):
     model = OfflineTotal
     readonly_fields = ['submitted_by_user']
     extra = 1
     tab = True
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 @admin.register(Chapter)
@@ -142,7 +166,9 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
     def get_fields(self, request, obj=None):
         fields = self.fields.copy()
         if not request.user.has_perm('chapters.change_chapter_info', obj=obj):
-            fields[3] = 'nearby_chapters_display'
+            fields[fields.index('nearby_chapters')] = 'nearby_chapters_display'
+        if not request.user.has_perm('members.view_member', obj=obj):
+            fields.pop(fields.index('view_members_link'))
         return fields
 
     def get_prepopulated_fields(self, request, obj=None):
@@ -152,11 +178,12 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj and not request.user.has_perm('chapters.change_chapter_info', obj=obj):
-            return (
-                [f.name for f in self.model._meta.fields]
-                + self.readonly_fields
-                + ['nearby_chapters_display']
-            )
+            fields = [f.name for f in self.model._meta.fields] + [
+                'nearby_chapters_display'
+            ]
+            if request.user.has_perm('members.view_member', obj=obj):
+                fields += ['view_members_link']
+            return fields
         return super().get_readonly_fields(request, obj)
 
 
