@@ -274,6 +274,13 @@
 },
 {
   "model": "regions.state",
+  "pk": "PR",
+  "fields": {
+    "name": "Puerto Rico"
+  }
+},
+{
+  "model": "regions.state",
   "pk": "RI",
   "fields": {
     "name": "Rhode Island"
@@ -319,6 +326,13 @@
   "pk": "VA",
   "fields": {
     "name": "Virginia"
+  }
+},
+{
+  "model": "regions.state",
+  "pk": "VI",
+  "fields": {
+    "name": "Virgin Islands"
   }
 },
 {
@@ -385,6 +399,3078 @@
     "area_codes": "631",
     "latitude": 40.81,
     "longitude": -73.04,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00601",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Adjuntas",
+    "acceptable_cities": null,
+    "county": "Adjuntas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.16,
+    "longitude": -66.72,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00602",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Aguada",
+    "acceptable_cities": null,
+    "county": "Aguada Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.38,
+    "longitude": -67.18,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00603",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Aguadilla",
+    "acceptable_cities": "Ramey",
+    "county": "Aguadilla Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -67.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00604",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Aguadilla",
+    "acceptable_cities": "Ramey",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -67.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00605",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Aguadilla",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -67.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00606",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Maricao",
+    "acceptable_cities": null,
+    "county": "Maricao Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.18,
+    "longitude": -66.98,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00610",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Anasco",
+    "acceptable_cities": null,
+    "county": "Anasco Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.28,
+    "longitude": -67.14,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00611",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Angeles",
+    "acceptable_cities": null,
+    "county": "Utuado Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.28,
+    "longitude": -66.81,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00612",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Arecibo",
+    "acceptable_cities": null,
+    "county": "Arecibo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.73,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00613",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Arecibo",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.73,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00614",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Arecibo",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.73,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00616",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Bajadero",
+    "acceptable_cities": null,
+    "county": "Arecibo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.42,
+    "longitude": -66.67,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00617",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Barceloneta",
+    "acceptable_cities": null,
+    "county": "Barceloneta Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.56,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00622",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Boqueron",
+    "acceptable_cities": null,
+    "county": "Cabo Rojo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.99,
+    "longitude": -67.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00623",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Cabo Rojo",
+    "acceptable_cities": null,
+    "county": "Cabo Rojo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.08,
+    "longitude": -67.14,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00624",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Penuelas",
+    "acceptable_cities": null,
+    "county": "Penuelas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.06,
+    "longitude": -66.72,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00627",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Camuy",
+    "acceptable_cities": null,
+    "county": "Camuy Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.48,
+    "longitude": -66.84,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00631",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Castaner",
+    "acceptable_cities": "Adjuntas",
+    "county": "Lares Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.19,
+    "longitude": -66.82,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00636",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Rosario",
+    "acceptable_cities": null,
+    "county": "San German Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.16,
+    "longitude": -67.08,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00637",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Sabana Grande",
+    "acceptable_cities": null,
+    "county": "Sabana Grande Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.08,
+    "longitude": -66.96,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00638",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ciales",
+    "acceptable_cities": null,
+    "county": "Ciales Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.33,
+    "longitude": -66.47,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00641",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Utuado",
+    "acceptable_cities": null,
+    "county": "Utuado Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.27,
+    "longitude": -66.7,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00646",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Dorado",
+    "acceptable_cities": null,
+    "county": "Dorado Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.47,
+    "longitude": -66.27,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00647",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ensenada",
+    "acceptable_cities": null,
+    "county": "Guanica Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.96,
+    "longitude": -66.94,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00650",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Florida",
+    "acceptable_cities": null,
+    "county": "Florida Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.36,
+    "longitude": -66.56,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00652",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Garrochales",
+    "acceptable_cities": null,
+    "county": "Arecibo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.6,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00653",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guanica",
+    "acceptable_cities": null,
+    "county": "Guanica Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.99,
+    "longitude": -66.89,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00656",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guayanilla",
+    "acceptable_cities": null,
+    "county": "Guayanilla Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.02,
+    "longitude": -66.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00659",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Hatillo",
+    "acceptable_cities": null,
+    "county": "Hatillo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.48,
+    "longitude": -66.82,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00660",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Hormigueros",
+    "acceptable_cities": null,
+    "county": "Hormigueros Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.14,
+    "longitude": -67.12,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00662",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Isabela",
+    "acceptable_cities": null,
+    "county": "Isabela Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.5,
+    "longitude": -67.02,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00664",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Jayuya",
+    "acceptable_cities": null,
+    "county": "Jayuya Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -66.59,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00667",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Lajas",
+    "acceptable_cities": null,
+    "county": "Lajas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.04,
+    "longitude": -67.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00669",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Lares",
+    "acceptable_cities": null,
+    "county": "Lares Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.29,
+    "longitude": -66.88,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00670",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Las Marias",
+    "acceptable_cities": null,
+    "county": "Las Marias Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.27,
+    "longitude": -67.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00674",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Manati",
+    "acceptable_cities": null,
+    "county": "Manati Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -66.48,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00676",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Moca",
+    "acceptable_cities": null,
+    "county": "Moca Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.39,
+    "longitude": -67.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00677",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Rincon",
+    "acceptable_cities": null,
+    "county": "Rincon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.34,
+    "longitude": -67.25,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00678",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Quebradillas",
+    "acceptable_cities": null,
+    "county": "Quebradillas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.47,
+    "longitude": -66.93,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00680",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Mayaguez",
+    "acceptable_cities": null,
+    "county": "Mayaguez Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.2,
+    "longitude": -67.14,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00681",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Mayaguez",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.2,
+    "longitude": -67.14,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00682",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Mayaguez",
+    "acceptable_cities": null,
+    "county": "Mayaguez Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -67.16,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00683",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San German",
+    "acceptable_cities": null,
+    "county": "San German Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.08,
+    "longitude": -67.04,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00685",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Sebastian",
+    "acceptable_cities": null,
+    "county": "San Sebastian Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.33,
+    "longitude": -66.99,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00687",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Morovis",
+    "acceptable_cities": null,
+    "county": "Morovis Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.32,
+    "longitude": -66.4,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00688",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Sabana Hoyos",
+    "acceptable_cities": null,
+    "county": "Arecibo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.38,
+    "longitude": -66.62,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00690",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Antonio",
+    "acceptable_cities": null,
+    "county": "Aguadilla Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.49,
+    "longitude": -67.09,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00692",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Vega Alta",
+    "acceptable_cities": null,
+    "county": "Vega Alta Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.32,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00693",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Vega Baja",
+    "acceptable_cities": null,
+    "county": "Vega Baja Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.39,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00694",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Vega Baja",
+    "acceptable_cities": null,
+    "county": "Vega Baja Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.48,
+    "longitude": -66.39,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00698",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Yauco",
+    "acceptable_cities": null,
+    "county": "Yauco Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.03,
+    "longitude": -66.86,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00703",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Aguas Buenas",
+    "acceptable_cities": null,
+    "county": "Aguas Buenas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.25,
+    "longitude": -66.1,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00704",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Aguirre",
+    "acceptable_cities": null,
+    "county": "Salinas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.96,
+    "longitude": -66.22,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00705",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Aibonito",
+    "acceptable_cities": null,
+    "county": "Aibonito Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.14,
+    "longitude": -66.26,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00707",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Maunabo",
+    "acceptable_cities": null,
+    "county": "Maunabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.0,
+    "longitude": -65.9,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00714",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Arroyo",
+    "acceptable_cities": null,
+    "county": "Arroyo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.97,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00715",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Mercedita",
+    "acceptable_cities": "Ponce",
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.01,
+    "longitude": -66.56,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00716",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ponce",
+    "acceptable_cities": "Mercedita",
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.98,
+    "longitude": -66.6,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00717",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.0,
+    "longitude": -66.61,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00718",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Naguabo",
+    "acceptable_cities": null,
+    "county": "Naguabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.21,
+    "longitude": -65.73,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00719",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Naranjito",
+    "acceptable_cities": null,
+    "county": "Naranjito Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.3,
+    "longitude": -66.24,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00720",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Orocovis",
+    "acceptable_cities": null,
+    "county": "Orocovis Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -66.39,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00721",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Palmer",
+    "acceptable_cities": "Rio Grande",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.37,
+    "longitude": -65.77,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00723",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Patillas",
+    "acceptable_cities": null,
+    "county": "Patillas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.0,
+    "longitude": -66.01,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00725",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Caguas",
+    "acceptable_cities": null,
+    "county": "Caguas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.23,
+    "longitude": -66.03,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00726",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Caguas",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.23,
+    "longitude": -66.03,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00727",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Caguas",
+    "acceptable_cities": null,
+    "county": "Caguas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -66.07,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00728",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.99,
+    "longitude": -66.66,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00729",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Canovanas",
+    "acceptable_cities": null,
+    "county": "Canovanas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.37,
+    "longitude": -65.9,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00730",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.03,
+    "longitude": -66.62,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00731",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.11,
+    "longitude": -66.63,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00732",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.98,
+    "longitude": -66.6,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00733",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.98,
+    "longitude": -66.6,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00734",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Ponce",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.98,
+    "longitude": -66.6,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00735",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Ceiba",
+    "acceptable_cities": "Roosevelt Rds, Roosevelt Roads",
+    "county": "Ceiba Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.25,
+    "longitude": -65.68,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00736",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Cayey",
+    "acceptable_cities": null,
+    "county": "Cayey Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.11,
+    "longitude": -66.16,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00737",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Cayey",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.11,
+    "longitude": -66.16,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00738",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Fajardo",
+    "acceptable_cities": null,
+    "county": "Fajardo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.33,
+    "longitude": -65.65,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00739",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Cidra",
+    "acceptable_cities": null,
+    "county": "Cidra Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.17,
+    "longitude": -66.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00740",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Puerto Real",
+    "acceptable_cities": null,
+    "county": "Fajardo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.33,
+    "longitude": -65.63,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00741",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Punta Santiago",
+    "acceptable_cities": "Punta Stgo",
+    "county": "Humacao Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.16,
+    "longitude": -65.75,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00742",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Roosevelt Roads",
+    "acceptable_cities": "Ceiba, Roosevelt Rds",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.27,
+    "longitude": -65.65,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00744",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Rio Blanco",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -65.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00745",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Rio Grande",
+    "acceptable_cities": null,
+    "county": "Rio Grande Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.38,
+    "longitude": -65.83,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00751",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Salinas",
+    "acceptable_cities": null,
+    "county": "Salinas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.97,
+    "longitude": -66.29,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00754",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Lorenzo",
+    "acceptable_cities": null,
+    "county": "San Lorenzo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.19,
+    "longitude": -65.96,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00757",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Santa Isabel",
+    "acceptable_cities": null,
+    "county": "Santa Isabel Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.97,
+    "longitude": -66.4,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00765",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Vieques",
+    "acceptable_cities": null,
+    "county": "Vieques Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.13,
+    "longitude": -65.44,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00766",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Villalba",
+    "acceptable_cities": null,
+    "county": "Villalba Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.13,
+    "longitude": -66.48,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00767",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Yabucoa",
+    "acceptable_cities": null,
+    "county": "Yabucoa Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.04,
+    "longitude": -65.87,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00769",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Coamo",
+    "acceptable_cities": null,
+    "county": "Coamo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.08,
+    "longitude": -66.36,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00771",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Las Piedras",
+    "acceptable_cities": null,
+    "county": "Las Piedras Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.18,
+    "longitude": -65.86,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00772",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Loiza",
+    "acceptable_cities": null,
+    "county": "Loiza Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -65.88,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00773",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Luquillo",
+    "acceptable_cities": null,
+    "county": "Luquillo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.34,
+    "longitude": -65.72,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00775",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Culebra",
+    "acceptable_cities": null,
+    "county": "Culebra Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.33,
+    "longitude": -65.3,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00777",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Juncos",
+    "acceptable_cities": null,
+    "county": "Juncos Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -65.91,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00778",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Gurabo",
+    "acceptable_cities": null,
+    "county": "Gurabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.25,
+    "longitude": -65.97,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00780",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Coto Laurel",
+    "acceptable_cities": "Ponce",
+    "county": "Ponce Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.09,
+    "longitude": -66.57,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00782",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Comerio",
+    "acceptable_cities": null,
+    "county": "Comerio Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.22,
+    "longitude": -66.22,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00783",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Corozal",
+    "acceptable_cities": null,
+    "county": "Corozal Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.34,
+    "longitude": -66.31,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00784",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guayama",
+    "acceptable_cities": null,
+    "county": "Guayama Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.97,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00785",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Guayama",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 17.97,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00786",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "La Plata",
+    "acceptable_cities": null,
+    "county": "Aibonito Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.14,
+    "longitude": -66.23,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00791",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Humacao",
+    "acceptable_cities": null,
+    "county": "Humacao Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.15,
+    "longitude": -65.81,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00792",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Humacao",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.15,
+    "longitude": -65.81,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00794",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Barranquitas",
+    "acceptable_cities": null,
+    "county": "Barranquitas Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.18,
+    "longitude": -66.3,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00795",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Juana Diaz",
+    "acceptable_cities": null,
+    "county": "Juana Diaz Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.05,
+    "longitude": -66.5,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00801",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "St Thomas",
+    "acceptable_cities": "Charlotte Ama, Charlotte Amalie",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.35,
+    "longitude": -64.97,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00802",
+  "fields": {
+    "state": "VI",
+    "type": "STANDARD",
+    "primary_city": "St Thomas",
+    "acceptable_cities": "Charlotte Ama, Charlotte Amalie",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.35,
+    "longitude": -64.93,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00803",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "St Thomas",
+    "acceptable_cities": "Charlotte Ama, Charlotte Amalie",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.35,
+    "longitude": -64.93,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00804",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "St Thomas",
+    "acceptable_cities": "Charlotte Ama, Charlotte Amalie",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.35,
+    "longitude": -64.93,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00805",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "St Thomas",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.34,
+    "longitude": -64.93,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00820",
+  "fields": {
+    "state": "VI",
+    "type": "STANDARD",
+    "primary_city": "Christiansted",
+    "acceptable_cities": "St Croix",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.74,
+    "longitude": -64.7,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00821",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Christiansted",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.74,
+    "longitude": -64.7,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00822",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Christiansted",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.74,
+    "longitude": -64.7,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00823",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Christiansted",
+    "acceptable_cities": "St Croix",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.72,
+    "longitude": -64.75,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00824",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Christiansted",
+    "acceptable_cities": "St Croix",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.74,
+    "longitude": -64.68,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00830",
+  "fields": {
+    "state": "VI",
+    "type": "STANDARD",
+    "primary_city": "St John",
+    "acceptable_cities": "Cruz Bay",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.33,
+    "longitude": -64.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00831",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "St John",
+    "acceptable_cities": "Cruz Bay",
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 18.33,
+    "longitude": -64.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00840",
+  "fields": {
+    "state": "VI",
+    "type": "STANDARD",
+    "primary_city": "Frederiksted",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.71,
+    "longitude": -64.88,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00841",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Frederiksted",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.77,
+    "longitude": -64.81,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00850",
+  "fields": {
+    "state": "VI",
+    "type": "STANDARD",
+    "primary_city": "Kingshill",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.73,
+    "longitude": -64.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00851",
+  "fields": {
+    "state": "VI",
+    "type": "PO BOX",
+    "primary_city": "Kingshill",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/St_Thomas",
+    "area_codes": "340",
+    "latitude": 17.75,
+    "longitude": -64.79,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00901",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Old San Juan, Viejo San Juan, Viejo Sn Juan",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.47,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00902",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Old San Juan, Viejo San Juan, Viejo Sn Juan",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00906",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Pta De Tierra, Puerta De Tierra",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.46,
+    "longitude": -66.09,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00907",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Condado, Miramar, Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.08,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00908",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00909",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Fdez Juncos, Fernandez Juncos, Minillas, Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.07,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00910",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Fdez Juncos, Fernandez Juncos",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00911",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00912",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00913",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Isla Verde, Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.45,
+    "longitude": -66.04,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00914",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Santurce",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00915",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Barrio Obrero, Bo Obrero, Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.05,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00916",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Barrio Obrero, Santurce",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00917",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Hato Rey",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.42,
+    "longitude": -66.05,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00918",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.42,
+    "longitude": -66.07,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00919",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Hato Rey",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00920",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Caparra, Caparra Hills, Caparra Ter, Caparra Terrace, Pto Nuevo, Puerto Nuevo",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.09,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00921",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "College Park, Pto Nuevo, Puerto Nuevo, Rio Piedras",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.39,
+    "longitude": -66.09,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00922",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Caparra, Caparra Hills, Caparra Ter, Caparra Terrace",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00923",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.04,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00924",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.01,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00925",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.05,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00926",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Cupey, Rio Piedras",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.35,
+    "longitude": -66.05,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00927",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00928",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00929",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00930",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras, San Jose",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00931",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Rio Piedras",
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00933",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00934",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Fort Buchanan",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.12,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00935",
+  "fields": {
+    "state": "PR",
+    "type": "UNIQUE",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00936",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Barrio Obrero, Caparra, Cupey, Minillas, Old San Juan, Rio Piedras, San Jose, Santurce",
+    "county": "San Juan Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.07,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00937",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00939",
+  "fields": {
+    "state": "PR",
+    "type": "UNIQUE",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00940",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": "Minillas, Santurce",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00949",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Toa Baja",
+    "acceptable_cities": "Levittown",
+    "county": "Toa Baja Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.25,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00950",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Toa Baja",
+    "acceptable_cities": null,
+    "county": "Dorado Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.46,
+    "longitude": -66.23,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00951",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Toa Baja",
+    "acceptable_cities": null,
+    "county": "Toa Baja Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -66.26,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00952",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Sabana Seca",
+    "acceptable_cities": null,
+    "county": "Toa Baja Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.42,
+    "longitude": -66.19,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00953",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Toa Alta",
+    "acceptable_cities": null,
+    "county": "Toa Alta Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.39,
+    "longitude": -66.25,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00954",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Toa Alta",
+    "acceptable_cities": null,
+    "county": "Toa Alta",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.39,
+    "longitude": -66.25,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00955",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00956",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.32,
+    "longitude": -66.17,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00957",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.37,
+    "longitude": -66.19,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00958",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.28,
+    "longitude": -66.13,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00959",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.39,
+    "longitude": -66.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00960",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.42,
+    "longitude": -66.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00961",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Bayamon",
+    "acceptable_cities": null,
+    "county": "Bayamon Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.17,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00962",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Catano",
+    "acceptable_cities": null,
+    "county": "Catano Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.15,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00963",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Catano",
+    "acceptable_cities": null,
+    "county": "Catano",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00965",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.43,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00966",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.12,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00968",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -66.1,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00969",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.38,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00970",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.38,
+    "longitude": -66.11,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00971",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Guaynabo",
+    "acceptable_cities": null,
+    "county": "Guaynabo Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.32,
+    "longitude": -66.12,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00975",
+  "fields": {
+    "state": "PR",
+    "type": "UNIQUE",
+    "primary_city": "San Juan",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -66.06,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00976",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Trujillo Alto",
+    "acceptable_cities": "Trujillo",
+    "county": "Trujillo Alto Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.36,
+    "longitude": -66.01,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00977",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Trujillo Alto",
+    "acceptable_cities": "Trujillo",
+    "county": null,
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.36,
+    "longitude": -66.01,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00978",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Saint Just",
+    "acceptable_cities": null,
+    "county": "San Juan",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.37,
+    "longitude": -66.01,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00979",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.44,
+    "longitude": -66.03,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00981",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -65.98,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00982",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -65.99,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00983",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -65.98,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00984",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -65.98,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00985",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.41,
+    "longitude": -65.95,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00986",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -65.98,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00987",
+  "fields": {
+    "state": "PR",
+    "type": "STANDARD",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina Municipio",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.34,
+    "longitude": -65.94,
+    "population": 0
+  }
+},
+{
+  "model": "regions.zip",
+  "pk": "00988",
+  "fields": {
+    "state": "PR",
+    "type": "PO BOX",
+    "primary_city": "Carolina",
+    "acceptable_cities": null,
+    "county": "Carolina",
+    "timezone": "America/Puerto_Rico",
+    "area_codes": "787, 939",
+    "latitude": 18.4,
+    "longitude": -65.98,
     "population": 0
   }
 },
