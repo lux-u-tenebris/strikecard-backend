@@ -226,14 +226,14 @@ class Common(Configuration):
                     'collapsible': False,
                     'items': [
                         {
-                            'title': 'Members',
-                            'icon': 'person',
-                            'link': reverse_lazy('admin:members_member_changelist'),
-                        },
-                        {
                             'title': 'Chapters',
                             'icon': 'groups',
                             'link': reverse_lazy('admin:chapters_chapter_changelist'),
+                        },
+                        {
+                            'title': 'Members',
+                            'icon': 'person',
+                            'link': reverse_lazy('admin:members_member_changelist'),
                         },
                         {
                             'title': 'Partners',
@@ -241,11 +241,17 @@ class Common(Configuration):
                             'link': reverse_lazy(
                                 'admin:partners_partnercampaign_changelist'
                             ),
+                            'permission': lambda r: r.user.has_perm(
+                                'partners.view_partner'
+                            ),
                         },
                         {
                             'title': 'Affiliates',
                             'icon': 'group',
                             'link': reverse_lazy('admin:partners_affiliate_changelist'),
+                            'permission': lambda r: r.user.has_perm(
+                                'partners.view_affiliate'
+                            ),
                         },
                     ],
                 },
@@ -257,17 +263,24 @@ class Common(Configuration):
                             'title': 'States',
                             'icon': 'map',
                             'link': reverse_lazy('admin:regions_state_changelist'),
+                            'permission': lambda r: r.user.has_perm(
+                                'regions.view_state'
+                            ),
                         },
                         {
                             'title': 'ZIP Codes',
                             'icon': 'map',
                             'link': reverse_lazy('admin:regions_zip_changelist'),
+                            'permission': lambda r: r.user.has_perm('regions.view_zip'),
                         },
                         {
                             'title': 'Chapter ZIPs',
                             'icon': 'map',
                             'link': reverse_lazy(
                                 'admin:chapters_chapterzip_changelist'
+                            ),
+                            'permission': lambda r: r.user.has_perm(
+                                'regions.view_chapter_zip'
                             ),
                         },
                     ],
@@ -280,11 +293,13 @@ class Common(Configuration):
                             'title': 'Users',
                             'icon': 'person',
                             'link': reverse_lazy('admin:users_user_changelist'),
+                            'permission': lambda r: r.user.has_perm('users.view_user'),
                         },
                         {
                             'title': 'Groups',
                             'icon': 'group',
                             'link': reverse_lazy('admin:auth_group_changelist'),
+                            'permission': lambda r: r.user.has_perm('users.view_group'),
                         },
                     ],
                 },
@@ -305,6 +320,19 @@ class Dev(Common):
     INTERNAL_IPS = ["127.0.0.1"]
     ALLOWED_HOSTS = values.ListValue(["localhost"])
     STATIC_ROOT = Common.BASE_DIR / 'static/'
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+            },
+        },
+        "root": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+        },
+    }
     AUTH_PASSWORD_VALIDATORS = []  # allow any passwords
 
     # Development-specific Allauth settings - allow both OAuth and regular signup
