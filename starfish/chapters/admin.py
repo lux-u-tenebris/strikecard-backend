@@ -7,6 +7,7 @@ from chapters.models import (
 )
 from django.contrib import admin
 from django.urls import reverse
+from django.utils.html import format_html
 from simple_history.admin import SimpleHistoryAdmin
 from unfold.admin import ModelAdmin, TabularInline
 from unfold.contrib.filters.admin import AutocompleteSelectMultipleFilter
@@ -148,9 +149,15 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
     ]
 
     def view_members_link(self, obj):
-        return pretty_button(
-            reverse('admin:members_member_changelist') + f'?chapter_id__exact={obj.id}',
-            f'View {obj.total_members} members',
+        count = obj.members.count()
+        return format_html(
+            pretty_button(
+                reverse('admin:members_member_changelist')
+                + f'?chapter_id__exact={obj.id}',
+                f'View {count} members',
+                fmt=False,
+            )
+            + f' ({obj.total_members} total)'
         )
 
     view_members_link.short_description = 'Members'
