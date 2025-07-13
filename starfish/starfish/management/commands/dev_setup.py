@@ -48,6 +48,14 @@ class Command(BaseCommand):
         if not admin:
             admin = User.objects.create_superuser('admin', 'admin@example.com', 'a')
 
+        for u in 'abcde':
+            try:
+                User.objects.create_user(
+                    u, f'{u}@example.com', u, is_staff=True, is_active=True
+                )
+            except IntegrityError:
+                pass
+
         self.partner_campaigns = []
         for _ in range(5):
             try:
