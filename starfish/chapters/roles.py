@@ -2,6 +2,8 @@ import logging
 
 from django.utils.text import camel_case_to_spaces
 
+logger = logging.getLogger(__name__)
+
 
 class BaseRole:
     key = None
@@ -25,7 +27,7 @@ class BaseRole:
         method_name = f'{app_name}_can_{perm_name}'
         method = getattr(self, method_name, lambda obj: False)
         hp = bool(method(obj=obj))
-        logging.debug(f'{method_name}: {hp}')
+        logger.debug(f'{method_name}: {hp}')
         return hp
 
     def __str__(self):

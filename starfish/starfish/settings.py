@@ -328,9 +328,15 @@ class Dev(Common):
                 "class": "logging.StreamHandler",
             },
         },
-        "root": {
-            "handlers": ["console"],
-            "level": "DEBUG",
+        "loggers": {
+            "chapters": {
+                "handlers": ["console"],
+                "level": "DEBUG",
+            },
+            "members": {
+                "handlers": ["console"],
+                "level": "DEBUG",
+            },
         },
     }
     AUTH_PASSWORD_VALIDATORS = []  # allow any passwords
