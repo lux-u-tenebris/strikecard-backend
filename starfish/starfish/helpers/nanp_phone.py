@@ -1,6 +1,6 @@
-from string import digits
+from string import digits, punctuation, whitespace
 
-PHONE_PUNCTUATION = r".()- "
+PHONE_PUNCTUATION = punctuation + whitespace
 PHONE_TRANSLATION_TABLE = str.maketrans("", "", PHONE_PUNCTUATION)
 
 

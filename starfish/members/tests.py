@@ -1,11 +1,9 @@
 import os
-import textwrap
 from pathlib import PurePath
 
 from django.core.management import call_command
 from django.test import TestCase
 from members.forms import PendingMemberForm
-from regions.models import Zip
 
 start_dir = PurePath(os.getcwd())
 if start_dir.name != "starfish":
@@ -28,6 +26,7 @@ class TestPendingMemberForm(TestCase):
             "(405) 405-4050": "4054054050",
             "405-405-4050": "4054054050",
             "405.405.4050": "4054054050",
+            "\t405&&405+4050": "4054054050",
         }
         failure_phones = {
             # GENERAL ERRORS
