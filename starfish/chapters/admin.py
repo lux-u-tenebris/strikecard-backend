@@ -18,6 +18,10 @@ class ChapterInlineMixin:
 
     def get_formset(self, request, obj=None, **kwargs):
         self.parent_obj = obj
+        try:
+            self.chapter_role = ChapterRole.objects.get(user=request.user, chapter=obj)
+        except ChapterRole.DoesNotExist:
+            self.chapter_role = None
         return super().get_formset(request, obj, **kwargs)
 
     def get_queryset(self, request):
@@ -84,12 +88,26 @@ class ChapterRoleInline(ChapterInlineMixin, TabularInline):
     def has_delete_permission(self, request, obj=None):
         return request.user.has_perm('chapters.delete_chapterrole', obj=obj)
 
+    def formfield_for_choice_field(self, db_field, request, **kwargs):
+        if self.chapter_role and db_field.name == 'role_key':
+            kwargs['choices'] = self.chapter_role.get_allowed_roles()
+        return super().formfield_for_choice_field(db_field, request, **kwargs)
+
 
 class ChapterSocialLinkInline(ChapterInlineMixin, TabularInline):
     model = ChapterSocialLink
     extra = 1
     tab = True
     verbose_name = 'Link'
+
+    def has_change_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.change_link', obj=obj)
+
+    def has_add_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.add_link', obj=obj)
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.has_perm('chapters.delete_link', obj=obj)
 
 
 class OfflineTotalInline(ChapterInlineMixin, TabularInline):

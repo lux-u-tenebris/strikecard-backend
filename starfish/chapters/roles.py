@@ -1,3 +1,5 @@
+import logging
+
 from django.utils.text import camel_case_to_spaces
 
 
@@ -19,25 +21,40 @@ class BaseRole:
             app_name, perm_name = perm.split('.')
         except ValueError:
             return False
+
         method_name = f'{app_name}_can_{perm_name}'
-        return bool(getattr(self, method_name, lambda obj: False)(obj=obj))
+        method = getattr(self, method_name, lambda obj: False)
+        hp = bool(method(obj=obj))
+        logging.debug(f'{method_name}: {hp}')
+        return hp
+
+    def __str__(self):
+        return self.label
+
+    def get_permitted_member_fields(self, obj=None):
+        fields = []
+        if self.members_can_view_email():
+            fields.append('email')
+        if self.members_can_view_phone():
+            fields.append('phone')
+        return fields
+
+    def get_allowed_roles(self):
+        return []
 
     def chapters_can_view_chapter(self, obj=None):
         return True
-
-    def chapters_can_view_chapterrole(self, obj=None):
-        return False
-
-    def chapters_can_add_chapterrole(self, obj=None):
-        return False
-
-    def chapters_can_add_owner(self, obj=None):
-        return False
 
     def chapters_can_change_chapter(self, obj=None):
         return False
 
     def chapters_can_change_chapter_info(self, obj=None):
+        return False
+
+    def chapters_can_view_chapterrole(self, obj=None):
+        return False
+
+    def chapters_can_add_chapterrole(self, obj=None):
         return False
 
     def chapters_can_change_chapterrole(self, obj=None):
@@ -61,17 +78,6 @@ class BaseRole:
     def members_can_add_member(self, obj=None):
         return False
 
-    def get_permitted_member_fields(self, obj=None):
-        fields = []
-        if self.members_can_view_email():
-            fields.append('email')
-        if self.members_can_view_phone():
-            fields.append('phone')
-        return fields
-
-    def __str__(self):
-        return self.label
-
 
 class ReporterEmail(BaseRole):
     label = 'Reporter (Email Only)'
@@ -90,6 +96,9 @@ class ReporterPhone(BaseRole):
 class Reporter(ReporterEmail, ReporterPhone):
     label = 'Reporter'
 
+    def chapters_can_view_chapterrole(self, obj=None):
+        return True
+
 
 class Manager(Reporter):
     label = 'Manager'
@@ -103,14 +112,20 @@ class Manager(Reporter):
     def members_can_add_member(self, obj=None):
         return True
 
-    def chapters_can_view_chapterrole(self, obj=None):
+    def chapters_can_add_chapterrole(self, obj=None):
         return True
 
     def chapters_can_change_chapterrole(self, obj=None):
+        return False
+
+    def chapters_can_change_link(self, obj=None):
         return True
 
-    def chapters_can_add_chapterrole(self, obj=None):
+    def chapters_can_add_link(self, obj=None):
         return True
+
+    def get_allowed_roles(self):
+        return ROLE_CHOICES.copy()[:-2]
 
 
 class Owner(Manager):
@@ -119,11 +134,14 @@ class Owner(Manager):
     def chapters_can_change_chapter_info(self, obj=None):
         return True
 
-    def chapters_can_add_owner(self, obj=None):
-        return True
-
     def chapters_can_delete_chapterrole(self, obj=None):
         return True
+
+    def chapters_can_delete_link(self, obj=None):
+        return True
+
+    def get_allowed_roles(self):
+        return ROLE_CHOICES
 
 
 _ROLE_CLASSES = [ReporterEmail, ReporterPhone, Reporter, Manager, Owner]
