@@ -1,5 +1,6 @@
+import json
 import os
-from pathlib import PurePath
+from pathlib import Path, PurePath
 
 from django.core.management import call_command
 from django.test import TestCase
@@ -23,6 +24,35 @@ class TestPendingMemberForm(TestCase):
     @classmethod
     def setUpTestData(cls) -> None:
         call_command("loaddata", cls.REGIONS_JSON)
+
+    def test_zip(self):
+        with Path(self.REGIONS_JSON).open("r") as f:
+            regions_json = json.load(f)
+
+        success_zips = {x["pk"] for x in regions_json if x["model"] == "regions.zip"}
+        failure_zips = set(str(x).zfill(5) for x in range(100_000)) - success_zips
+
+        def create_form(zip_code: str) -> PendingMemberForm:
+            d = self.DEFAULT_FORM_DATA.copy()
+            d["zip_code"] = zip_code
+            return PendingMemberForm(d)
+
+        for success_zip in success_zips:
+            pcf = create_form(success_zip)
+            is_valid = pcf.is_valid()
+            if not is_valid:
+                raise RuntimeError(success_zip, pcf.errors)
+            self.assertEqual(pcf.cleaned_data["zip_code"].code, success_zip)
+
+        EXPECTED_ZIP_ERROR = "Please enter a valid 5-digit ZIP Code."
+        for failure_zip in failure_zips:
+            pcf = create_form(failure_zip)
+            self.assertFalse(pcf.is_valid())
+            self.assertEqual(len(pcf.errors), 1)
+            self.assertIn("zip_code", pcf.errors)
+            errors = pcf.errors["zip_code"]
+            self.assertEqual(len(errors), 1)
+            self.assertEqual(errors[0], EXPECTED_ZIP_ERROR)
 
     def test_email(self):
         success_emails = {"name@domain.com", "first.last@google.com", "a@a.co"}
