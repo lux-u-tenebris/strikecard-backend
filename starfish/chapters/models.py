@@ -74,7 +74,6 @@ class ChapterRole(models.Model):
     role_key = models.CharField(
         verbose_name='Role', max_length=20, choices=ROLE_CHOICES
     )
-    title = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         constraints = [
@@ -95,6 +94,9 @@ class ChapterRole(models.Model):
 
     def has_perm(self, perm, obj=None):
         return self.role.has_perm(perm, obj=obj)
+
+    def get_allowed_roles(self):
+        return self.role.get_allowed_roles()
 
 
 class ChapterSocialLink(models.Model):
