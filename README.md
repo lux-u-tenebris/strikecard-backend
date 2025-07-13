@@ -77,3 +77,7 @@ Defined in [`docs/`](docs/).
 
 Please give a date-based name with a title like `yyyy-mm-dd-title.md` and put in
 [`docs/blog/posts/`](docs/blog/posts/).
+
+## Archival Scripts
+
+See the [Archive README](archive/README.md).
