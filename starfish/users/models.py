@@ -21,3 +21,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+
+    def has_any_chapter_role(self):
+        return self.chapter_roles.count() > 0

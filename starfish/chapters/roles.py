@@ -126,6 +126,9 @@ class Manager(Reporter):
     def chapters_can_add_link(self, obj=None):
         return True
 
+    def chapters_can_delete_link(self, obj=None):
+        return True
+
     def get_allowed_roles(self):
         return ROLE_CHOICES.copy()[:-2]
 
@@ -137,9 +140,6 @@ class Owner(Manager):
         return True
 
     def chapters_can_delete_chapterrole(self, obj=None):
-        return True
-
-    def chapters_can_delete_link(self, obj=None):
         return True
 
     def get_allowed_roles(self):
