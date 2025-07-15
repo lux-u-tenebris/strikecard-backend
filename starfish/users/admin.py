@@ -26,7 +26,7 @@ class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin, ModelAdmin):
         ('Personal info', {'fields': ('first_name', 'last_name')}),
         (
             'Permissions',
-            {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups')},
+            {'fields': ('is_active', 'is_superuser', 'groups')},
         ),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -39,7 +39,7 @@ class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin, ModelAdmin):
             },
         ),
     )
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
+    list_display = ('username', 'email', 'first_name', 'last_name')
     list_display_links = (
         'username',
         'email',

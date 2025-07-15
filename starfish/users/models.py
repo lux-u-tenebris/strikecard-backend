@@ -5,8 +5,13 @@ from simple_history.models import HistoricalRecords
 
 class User(AbstractUser):
     email = models.EmailField(
+        'email address',
         unique=True,
-        verbose_name='email address',
+    )
+    is_staff = models.BooleanField(
+        'staff status',
+        default=True,
+        help_text='Designates whether the user can log into this admin site.',
     )
 
     history = HistoricalRecords()
