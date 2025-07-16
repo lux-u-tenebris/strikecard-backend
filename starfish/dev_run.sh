@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
 echo "Be sure you ran dev_setup.sh first." >&2
 
 PORT="${1:-8000}"

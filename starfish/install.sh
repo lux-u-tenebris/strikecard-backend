@@ -18,10 +18,8 @@ pip install -r ../mkdocs-requirements.txt
 
 pre-commit install
 
-python manage.py flush --no-input
-
 python manage.py migrate
 
 python manage.py loaddata regions/fixtures/regions.json
-
 python manage.py create_state_chapters
+python manage.py create_groups
