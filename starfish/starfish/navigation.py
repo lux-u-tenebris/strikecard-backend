@@ -9,6 +9,7 @@ unfold_navigation = [
                 'title': 'Chapters',
                 'icon': 'groups',
                 'link': reverse_lazy('admin:chapters_chapter_changelist'),
+                'permission': lambda r: r.user.has_perm('chapters.view_chapter'),
             },
             {
                 'title': 'Members',

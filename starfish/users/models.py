@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
 from simple_history.models import HistoricalRecords
 
@@ -24,3 +24,10 @@ class User(AbstractUser):
 
     def has_any_chapter_role(self):
         return self.chapter_roles.exists()
+
+    def facilitator_group_placement(self):
+        group = Group.objects.get(name='Chapter Facilitators')
+        if self.has_any_chapter_role():
+            self.groups.add(group)
+        else:
+            self.groups.remove(group)
