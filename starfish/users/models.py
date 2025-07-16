@@ -23,4 +23,4 @@ class User(AbstractUser):
         return self.username
 
     def has_any_chapter_role(self):
-        return self.chapter_roles.count() > 0
+        return self.chapter_roles.exists()

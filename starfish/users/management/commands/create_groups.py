@@ -8,5 +8,5 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         cf, _ = Group.objects.get_or_create(name='Chapter Facilitators')
 
-        perms = ['view_member', 'view_state', 'view_zip']
+        perms = ['view_chapter', 'view_member', 'view_state', 'view_zip']
         cf.permissions.add(*[Permission.objects.get(codename=p) for p in perms])
