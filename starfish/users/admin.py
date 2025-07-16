@@ -7,6 +7,8 @@ from simple_history.admin import SimpleHistoryAdmin
 from unfold.admin import ModelAdmin, TabularInline
 from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
 
+from starfish.admin import ReadOnlyAdminMixin
+
 from .models import User
 
 admin.site.unregister(Group)
@@ -17,20 +19,11 @@ class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     compressed_fields = True
 
 
-class ChapterRoleInline(TabularInline):
+class ChapterRoleInline(ReadOnlyAdminMixin, TabularInline):
     model = ChapterRole
     fk_name = 'user'
     fields = ['chapter', 'role', 'added_by_user']
     readonly_fields = fields
-
-    def has_change_permission(self, request, obj=None):
-        return False
-
-    def has_add_permission(self, request, obj=None):
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        return False
 
 
 @admin.register(User)
