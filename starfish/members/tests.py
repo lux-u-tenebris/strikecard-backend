@@ -68,15 +68,17 @@ class TestPendingMemberForm(TestCase):
         self.assertEqual(errors[0], "Please enter a valid 5-digit ZIP Code.")
 
     def test_email(self):
-        success_emails = {"name@domain.com", "first.last@google.com", "a@a.co"}
-        failure_emails = {"", "name", "name@", "@", "@domain.com", "a@a.c"}
+        """Tests behavior of form with respect to PendingMember and Member."""
 
         def create_form(email: str) -> PendingMemberForm:
             d = self.DEFAULT_FORM_DATA.copy()
             d["email"] = email
             return PendingMemberForm(d)
 
-        # FILL OUT THE FORM
+        # PASSING EXAMPLES
+        success_emails = {"name@domain.com", "first.last@google.com", "a@a.co"}
+
+        ## FILL OUT THE FORM, DO NOT CREATE PENDING MEMBERS
         for success_email in success_emails:
             pcf = create_form(success_email)
             is_valid = pcf.is_valid()
@@ -84,11 +86,11 @@ class TestPendingMemberForm(TestCase):
                 raise RuntimeError(success_email, pcf.errors)
             self.assertEqual(pcf.cleaned_data["email"], success_email)
 
-        # CREATE PENDING MEMBERS
+        ## CREATE PENDING MEMBERS
         for email in success_emails:
             create_form(email).save()
 
-        # FILL OUT THE FORM AGAIN, ALLOWED BECAUSE STILL PENDING
+        ## FILL OUT THE FORM AGAIN, PASSES BECAUSE PENDING MEMBER EXISTS
         for repeat_pending_email in success_emails:
             pcf = create_form(repeat_pending_email)
             is_valid = pcf.is_valid()
@@ -96,26 +98,25 @@ class TestPendingMemberForm(TestCase):
                 raise RuntimeError(repeat_pending_email, pcf.errors)
             self.assertEqual(pcf.cleaned_data["email"], repeat_pending_email)
 
-        # VALIDATE PENDING MEMBERS
+        ## VALIDATE PENDING MEMBERS AS MEMBERS
         for email in success_emails:
             create_form(email).save().validate_member()
 
-        # FILL OUT THE FORM AGAIN, NOT ALLOWED BECAUSE MEMBER EXISTS
-        EXPECTED_EMAIL_ALREADY_REGISTERED_ERROR = (
-            "The email address entered is already registered."
-        )
+        ## FILL OUT THE FORM AGAIN, FAILS BECAUSE MEMBER EXISTS
         for repeat_member_email in success_emails:
             pcf = create_form(repeat_member_email)
-            is_valid = pcf.is_valid()
-            if is_valid:
-                raise RuntimeError(repeat_member_email)
-            for field, errors in pcf.errors.items():
-                if field != "email" or len(errors) != 1:
-                    raise RuntimeError(repeat_member_email)
-                actual_error = errors[0]
-                self.assertEqual(actual_error, EXPECTED_EMAIL_ALREADY_REGISTERED_ERROR)
+            self.assertFalse(pcf.is_valid())
+            self.assertEqual(len(pcf.errors), 1)
+            self.assertIn("email", pcf.errors)
+            errors = pcf.errors["email"]
+            self.assertEqual(len(errors), 1)
+            self.assertEqual(
+                errors[0],
+                "The email address entered is already registered.",
+            )
 
-        # INVALID EMAILS
+        # FAILING EXAMPLES
+        failure_emails = {"", "name", "name@", "@", "@domain.com", "a@a.c"}
         for failure_email in failure_emails:
             pcf = create_form(failure_email)
             self.assertFalse(pcf.is_valid())
@@ -123,6 +124,7 @@ class TestPendingMemberForm(TestCase):
             self.assertIn("email", pcf.errors)
             errors = pcf.errors["email"]
             self.assertEqual(len(errors), 1)
+            # no need to test django built-in error text
 
     def test_phone(self):
         EXPECTED_PHONE_ERROR = r"""Please enter a 10-digit phone number."""
