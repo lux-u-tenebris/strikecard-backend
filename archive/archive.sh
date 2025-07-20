@@ -17,18 +17,21 @@
 ######
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR"
-. .env
 
 ##### SETUP
 output_directory="$1"
+if [ ! -d "$output_directory" ]; then
+  echo "does not exist: $output_directory"
+  echo "please use an absolute path to an already existing directory"
+  exit 1
+fi
+
 repo_url="https://github.com/GS-US/strikecard-backend"
 now="$(date +"%Y-%m-%dT%H:%M:%S.%N")"
 log_file="$output_directory/$now-repo.log"
-
-if [ ! -f ./.env ]; then
-    cp .env.template .env
-    echo "You will need to edit .env to add your GitHub auth token." >> "$log_file" 2>&1
-fi
+touch "$log_file"
+echo "Starting repo archive process." \
+  >> "$log_file" 2>&1
 
 ##### GITHUB TAR DOWNLOAD
 
