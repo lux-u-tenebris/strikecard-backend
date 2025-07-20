@@ -1,20 +1,45 @@
 #! /usr/bin/bash
-# Add to cron with `crontab -e` and adding the following lines.
-# This setup will run once daily at midnight, which is the recommendation.
-# The script handles its own logging.
-#
-# Prerequisites:
-#    - <YOUR_ARCHIVE_DIR> exists and is writeable (chmod u+w ...)
-#    - This script is executable (chmod u+x ...)
-#
-# Check <YOUR_ARCHIVE_DIR> for output log files.
-#
-######
-#
-# # archive https://github.com/GS-US/strikecard-backend.git
-# 0 0 * * * <YOUR_PARENT_DIR>/strikecard-backend/archive/archive.sh <YOUR_ARCHIVE_DIR>
-#
-######
+
+help="Repo archival script.
+
+The only input is an existing, absolute path to a directory (<YOUR_ARCHIVE_DIR>)
+where outputs are written. Output names are prefixed with the current time. The
+script handles its own logging, which is also put into the output as a text
+file.
+
+## Manual Usage
+
+# ensure you are in the <REPO_DIR>
+archive/archive.sh <YOUR_ARCHIVE_DIR>
+
+# see help message
+archive/archive.sh
+
+## Crontab Usage
+
+Add to cron with 'crontab -e' and adding the lines in 'Example Crontab Entry'
+below. The example setup will run once daily at midnight.
+
+Prerequisites:
+  - The repo is cloned onto your system at <REPO_DIR> (git clone ...).
+  - <YOUR_ARCHIVE_DIR> exists and is writeable (chmod u+w ...).
+  - This script is executable (chmod u+x ...).
+
+Check <YOUR_ARCHIVE_DIR> for output log files and ensure the script runs as
+expected.
+
+### Example Crontab Entry
+
+# archive https://github.com/GS-US/strikecard-backend.git
+0 0 * * * <REPO_DIR>/archive/archive.sh <YOUR_ARCHIVE_DIR>"
+
+##### HELP
+if [ "$#" -ne 1 ]; then
+  echo "$help"
+  exit 1
+fi
+
+##### GET INTO THE SCRIPT ENVIRONMENT
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd "$SCRIPT_DIR"
 
