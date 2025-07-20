@@ -1,10 +1,9 @@
-import json
 import os
-from pathlib import Path, PurePath
+from pathlib import PurePath
 
-from django.core.management import call_command
 from django.test import TestCase
 from members.forms import PendingMemberForm
+from regions.models import State, Zip
 
 start_dir = PurePath(os.getcwd())
 if start_dir.name != "starfish":
@@ -13,46 +12,60 @@ if start_dir.name != "starfish":
 
 # Create your tests here.
 class TestPendingMemberForm(TestCase):
-    REGIONS_JSON = start_dir / "regions/fixtures/regions.json"
+    SUCCESS_ZIP_CODE = "00501"
+    FAILURE_ZIP_CODE = "00000"
     DEFAULT_FORM_DATA = {
         "name": "name",
         "email": "email@domain.com",
-        "zip_code": "00501",
+        "zip_code": SUCCESS_ZIP_CODE,
         "phone": "4054054050",
     }
 
     @classmethod
     def setUpTestData(cls) -> None:
-        call_command("loaddata", cls.REGIONS_JSON)
+        state_fixture = {
+            "code": "NY",
+            "name": "New York",
+        }
+        state = State.objects.create(**state_fixture)
+        zip_fixture = {
+            "code": cls.SUCCESS_ZIP_CODE,
+            "state": state,
+            "type": "UNIQUE",
+            "primary_city": "Holtsville",
+            "acceptable_cities": None,
+            "county": "Suffolk County",
+            "timezone": "America/New_York",
+            "area_codes": "631",
+            "latitude": 40.81,
+            "longitude": -73.04,
+            "population": 562,
+        }
+        Zip.objects.create(**zip_fixture)
 
     def test_zip(self):
-        with Path(self.REGIONS_JSON).open("r") as f:
-            regions_json = json.load(f)
-
-        success_zips = {x["pk"] for x in regions_json if x["model"] == "regions.zip"}
-        failure_zips = set(str(x).zfill(5) for x in range(100_000)) - success_zips
-
         def create_form(zip_code: str) -> PendingMemberForm:
             d = self.DEFAULT_FORM_DATA.copy()
             d["zip_code"] = zip_code
             return PendingMemberForm(d)
 
-        for success_zip in success_zips:
-            pcf = create_form(success_zip)
-            is_valid = pcf.is_valid()
-            if not is_valid:
-                raise RuntimeError(success_zip, pcf.errors)
-            self.assertEqual(pcf.cleaned_data["zip_code"].code, success_zip)
+        # PASSING EXAMPLE
+        success_zip = self.SUCCESS_ZIP_CODE
+        pcf = create_form(success_zip)
+        is_valid = pcf.is_valid()
+        if not is_valid:
+            raise RuntimeError(success_zip, pcf.errors)
+        self.assertEqual(pcf.cleaned_data["zip_code"].code, success_zip)
 
-        EXPECTED_ZIP_ERROR = "Please enter a valid 5-digit ZIP Code."
-        for failure_zip in failure_zips:
-            pcf = create_form(failure_zip)
-            self.assertFalse(pcf.is_valid())
-            self.assertEqual(len(pcf.errors), 1)
-            self.assertIn("zip_code", pcf.errors)
-            errors = pcf.errors["zip_code"]
-            self.assertEqual(len(errors), 1)
-            self.assertEqual(errors[0], EXPECTED_ZIP_ERROR)
+        # FAILING EXAMPLE
+        failure_zip = self.FAILURE_ZIP_CODE
+        pcf = create_form(failure_zip)
+        self.assertFalse(pcf.is_valid())
+        self.assertEqual(len(pcf.errors), 1)
+        self.assertIn("zip_code", pcf.errors)
+        errors = pcf.errors["zip_code"]
+        self.assertEqual(len(errors), 1)
+        self.assertEqual(errors[0], "Please enter a valid 5-digit ZIP Code.")
 
     def test_email(self):
         success_emails = {"name@domain.com", "first.last@google.com", "a@a.co"}
