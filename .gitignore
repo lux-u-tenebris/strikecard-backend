@@ -3,3 +3,4 @@ __pycache__
 db.sqlite3
 .env
 site/
+starfish/test_profiling_results
