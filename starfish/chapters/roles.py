@@ -25,9 +25,10 @@ class BaseRole:
             return False
 
         method_name = f'{app_name}_can_{perm_name}'
+        logger.debug(f'call {method_name} {obj}')
         method = getattr(self, method_name, lambda obj: False)
         hp = bool(method(obj=obj))
-        logger.debug(f'{method_name}: {hp}')
+        logger.debug(f'ret  {method_name}: {hp}')
         return hp
 
     def __str__(self):
@@ -63,7 +64,7 @@ class BaseRole:
         return False
 
     def chapters_can_delete_chapterrole(self, obj=None):
-        return False
+        return type(obj) in self.get_allowed_role_classes()
 
     def members_can_view_member(self, obj=None):
         return True
@@ -132,6 +133,9 @@ class Manager(Reporter):
     def get_allowed_roles(self):
         return ROLE_CHOICES.copy()[:-2]
 
+    def get_allowed_role_classes(self):
+        return _ROLE_CLASSES.copy()[:-2]
+
 
 class Owner(Manager):
     label = 'Owner'
@@ -144,6 +148,9 @@ class Owner(Manager):
 
     def get_allowed_roles(self):
         return ROLE_CHOICES
+
+    def get_allowed_role_classes(self):
+        return _ROLE_CLASSES
 
 
 _ROLE_CLASSES = [ReporterEmail, ReporterPhone, Reporter, Manager, Owner]

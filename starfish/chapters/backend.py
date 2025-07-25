@@ -1,6 +1,10 @@
+import logging
+
 from django.contrib.auth.backends import BaseBackend
 
 from .models import Chapter, ChapterRole
+
+logger = logging.getLogger(__name__)
 
 
 class ChapterRolePermissionBackend(BaseBackend):
@@ -12,6 +16,7 @@ class ChapterRolePermissionBackend(BaseBackend):
         if not obj:
             return super().has_perm(user, perm)
 
+        logger.debug(f'backend {perm}')
         chapter = isinstance(obj, Chapter) and obj or getattr(obj, 'chapter')
 
         try:
