@@ -50,6 +50,10 @@ nav:
   - Home: index.md
   - Blog:
       - blog/index.md
+  - Devops:
+      - index.md
+  - Testing:
+      - index.md
   - Business Cases: business-cases.md
   - People: people.md
 
