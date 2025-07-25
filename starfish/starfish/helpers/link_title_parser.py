@@ -14,7 +14,7 @@ class LinkTitleParser(html.parser.HTMLParser):
         super().__init__()
         self.url = url
         try:
-            response = requests.get(self.url, allow_redirects=True)
+            response = requests.get(self.url, allow_redirects=True, timeout=5)
             if 199 < response.status_code < 300:
                 logger.info(f'fetched {len(response.content)} bytes from {self.url}')
                 # Got it! go ahead and parse. Hopefully this creates a title

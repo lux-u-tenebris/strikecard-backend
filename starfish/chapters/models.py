@@ -1,3 +1,4 @@
+import logging
 import urllib.parse
 
 from django.conf import settings
@@ -10,6 +11,8 @@ from simple_history.models import HistoricalRecords
 
 from starfish.helpers.link_title_parser import LinkTitleParser
 from starfish.models import SoftDeletablePermissionManager
+
+logger = logging.getLogger(__name__)
 
 
 def get_chapter_for_zip(zip_code):
@@ -101,8 +104,22 @@ class ChapterLink(models.Model):
 
     history = HistoricalRecords()
 
+    class Meta:
+        ordering = ['order']
+
     def __str__(self):
         return f'{self.title}: {self.url}'
+
+    def initial_title_text(self):
+        return 'We will try to figure out a title for you :)'
+
+    def save(self, *args, **kwargs):
+        if (
+            not self.title or self.title == self.initial_title_text()
+        ) and self._state.adding:
+            logger.info(f'searching for link title for {self}')
+            self.get_link_title_from_url()
+        super().save(*args, **kwargs)
 
     @property
     def link_hostname(self):

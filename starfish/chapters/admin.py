@@ -9,6 +9,7 @@ from chapters.models import (
     OfflineTotal,
 )
 from django.contrib import admin
+from django.forms import ModelForm
 from django.urls import reverse
 from rules.contrib.admin import ObjectPermissionsModelAdmin
 from simple_history.admin import SimpleHistoryAdmin
@@ -42,11 +43,23 @@ class ChapterRoleInline(TabularInline):
     verbose_name = 'Role'
 
 
+class ChapterLinkInlineForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # logger.info(f'{self.instance}: {dir(self.instance)}')
+        if self.instance._state.adding:
+            # logger.info(f'this is a NEW entry, {dir(self.fields["title"])}')
+            self.fields['title'].disabled = True
+            self.fields['title'].initial = self.instance.initial_title_text()
+            self.fields['title'].show_hidden_initial = True
+
+
 class ChapterLinkInline(TabularInline):
     model = ChapterLink
     extra = 1
     tab = True
     verbose_name = 'Link'
+    form = ChapterLinkInlineForm
     ordering_field = 'order'
     ordering = ['order']
     hide_ordering_field = True
@@ -126,10 +139,6 @@ class ChapterAdmin(
                 obj.submitted_by_user = request.user
             if isinstance(obj, ChapterRole) and not obj.added_by_user_id:
                 obj.added_by_user = request.user
-            if isinstance(obj, ChapterLink):
-                logger.info(f'maybe updating link title from "{obj.title}" to url')
-                if not obj.title:
-                    obj.get_link_title_from_url()
             obj.save()
         for obj in formset.deleted_objects:
             obj.delete()
