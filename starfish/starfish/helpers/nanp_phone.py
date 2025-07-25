@@ -1,6 +1,6 @@
-from string import digits
+from string import digits, punctuation, whitespace
 
-PHONE_PUNCTUATION = r".()- "
+PHONE_PUNCTUATION = punctuation + whitespace
 PHONE_TRANSLATION_TABLE = str.maketrans("", "", PHONE_PUNCTUATION)
 
 
@@ -40,40 +40,26 @@ def clean_nanp_phone(phone_input, error_to_raise):
     - XXXX is the line number. There are no restrictions.
     """
 
-    GENERAL_ERROR_MSG = (
-        "Please enter a 10-digit North American phone number without the 1."
-        " Spaces and the following punctuation are allowed: ().-"
-    )
+    PHONE_ERROR_MSG = r"""Please enter a 10-digit phone number."""
 
     if not isinstance(phone_input, str) or phone_input == "":
-        raise error_to_raise(GENERAL_ERROR_MSG)
+        raise error_to_raise(PHONE_ERROR_MSG)
 
     if not _is_phone_input_only_allowed_characters(phone_input):
-        raise error_to_raise(GENERAL_ERROR_MSG)
+        raise error_to_raise(PHONE_ERROR_MSG)
 
     phone_input = _remove_punctuation_and_space(phone_input)
 
     if len(phone_input) != 10:
-        raise error_to_raise(GENERAL_ERROR_MSG)
+        raise error_to_raise(PHONE_ERROR_MSG)
 
     area_code = phone_input[:3]
     if not _is_phone_area_code_valid(area_code):
-        AREA_CODE_ERROR_MSG = (
-            "Please ensure your phone number has a valid area code."
-            " Area codes cannot start with 0 or 1,"
-            " cannot have the second digit be 9,"
-            " and cannot have the second and third digit be the same."
-        )
-        raise error_to_raise(AREA_CODE_ERROR_MSG)
+        raise error_to_raise(PHONE_ERROR_MSG)
 
     prefix = phone_input[3:6]
     if not _is_phone_prefix_valid(prefix):
-        PREFIX_ERROR_MESSAGE = (
-            "Please ensure your three-digit prefix (exchange) is valid."
-            " Prefixes cannot start with 0 or 1, cannot be 555,"
-            " and cannot have the second and third digit both be 1."
-        )
-        raise error_to_raise(PREFIX_ERROR_MESSAGE)
+        raise error_to_raise(PHONE_ERROR_MSG)
 
     return phone_input
 
