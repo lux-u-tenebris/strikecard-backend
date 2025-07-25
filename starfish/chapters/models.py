@@ -98,6 +98,9 @@ class ChapterRole(models.Model):
     def get_allowed_roles(self):
         return self.role.get_allowed_roles()
 
+    def get_allowed_member_fields(self):
+        return self.role.get_allowed_member_fields()
+
 
 class ChapterSocialLink(models.Model):
     chapter = models.ForeignKey(

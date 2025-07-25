@@ -12,6 +12,7 @@ from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
 
 class MemberForm(forms.ModelForm):
+
     class Meta:
         model = Member
         fields = '__all__'
@@ -109,6 +110,13 @@ class MemberAdmin(
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+    def get_fields(self, request, obj=None):
+        try:
+            role = ChapterRole.objects.get(user=request.user, chapter=obj.chapter)
+        except ChapterRole.DoesNotExist:
+            return super().get_fields(request, obj=obj)
+        return role.get_allowed_member_fields()
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)

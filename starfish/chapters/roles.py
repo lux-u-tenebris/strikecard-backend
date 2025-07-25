@@ -34,12 +34,22 @@ class BaseRole:
     def __str__(self):
         return self.label
 
-    def get_permitted_member_fields(self, obj=None):
-        fields = []
+    def get_allowed_member_fields(self, obj=None):
+        fields = [
+            'name',
+        ]
         if self.members_can_view_email():
             fields.append('email')
         if self.members_can_view_phone():
             fields.append('phone')
+        fields += [
+            'zip_code',
+            'chapter',
+            'partner_campaign',
+            'leadership_score',
+            'referer_full',
+            'validated',
+        ]
         return fields
 
     def get_allowed_roles(self):
