@@ -1,5 +1,6 @@
 import factory
 from chapters.models import Chapter, ChapterLink, ChapterRole, OfflineTotal
+from chapters.roles import ROLE_CLASSES
 from django.utils.text import slugify
 from factory.django import DjangoModelFactory
 from regions.models import State, Zip
@@ -24,8 +25,7 @@ class ChapterRoleFactory(DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
     added_by_user = factory.SubFactory(UserFactory)
     chapter = factory.SubFactory(ChapterFactory)
-    role = factory.Iterator(['facilitator', 'assistant'])
-    title = factory.Iterator(['Facilitator', 'Assistant'])
+    role_key = factory.Iterator(ROLE_CLASSES.keys())
 
 
 class ChapterLinkFactory(DjangoModelFactory):

@@ -1,42 +1,33 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
 from simple_history.models import HistoricalRecords
 
 
 class User(AbstractUser):
-    # Username is required for authentication
-    username = models.CharField(
-        max_length=150,
-        unique=True,
-        help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.',
-    )
-
-    # Email is required
     email = models.EmailField(
+        'email address',
         unique=True,
-        verbose_name='email address',
+    )
+    is_staff = models.BooleanField(
+        'staff status',
+        default=True,
+        help_text='Designates whether the user can log into this admin site.',
     )
 
     history = HistoricalRecords()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']  # email is required for createsuperuser
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
-        return self.email
+        return self.username
 
-    def is_chapter_facilitator(self, chapter):
-        return self.chapter_roles.filter(chapter=chapter, role='facilitator').exists()
+    def has_any_chapter_role(self):
+        return self.chapter_roles.exists()
 
-    def is_chapter_assistant(self, chapter):
-        return self.chapter_roles.filter(chapter=chapter, role='assistant').exists()
-
-    def is_chapter_member(self, chapter):
-        return self.is_chapter_facilitator(chapter) or self.is_chapter_assistant(
-            chapter
-        )
-
-    def get_chapters(self):
-        from chapters.models import Chapter
-
-        return Chapter.objects.filter(roles__user=self).distinct()
+    def facilitator_group_placement(self):
+        group = Group.objects.get(name='Chapter Facilitators')
+        if self.has_any_chapter_role():
+            self.groups.add(group)
+        else:
+            self.groups.remove(group)

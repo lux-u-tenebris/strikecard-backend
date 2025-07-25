@@ -4,13 +4,16 @@ import urllib.parse
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models import Sum
+from django.db.models import Q, Sum
+from django.utils.functional import cached_property
 from model_utils.models import SoftDeletableModel, TimeStampedModel
 from regions.models import State, Zip
 from simple_history.models import HistoricalRecords
 
 from starfish.helpers.link_title_parser import LinkTitleParser
 from starfish.models import SoftDeletablePermissionManager
+
+from .roles import ROLE_CHOICES, ROLE_CLASSES, get_role_instance
 
 logger = logging.getLogger(__name__)
 
@@ -65,10 +68,6 @@ class Chapter(TimeStampedModel, SoftDeletableModel):
 
 
 class ChapterRole(models.Model):
-    ROLE_CHOICES = [
-        ('facilitator', 'Facilitator'),
-        ('assistant', 'Assistant'),
-    ]
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='chapter_roles'
     )
@@ -79,18 +78,35 @@ class ChapterRole(models.Model):
         editable=False,
     )
     chapter = models.ForeignKey(Chapter, on_delete=models.PROTECT, related_name='roles')
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='assistant')
-    title = models.CharField(max_length=255, blank=True, null=True)
+    role_key = models.CharField(
+        verbose_name='Role', max_length=20, choices=ROLE_CHOICES
+    )
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["user", "chapter"], name="chapter_role_unique_user_role"
-            )
+                fields=['user', 'chapter'], name='chapter_role_unique_user_role'
+            ),
+            models.CheckConstraint(
+                check=Q(role_key__in=ROLE_CLASSES.keys()), name='valid_role_key_check'
+            ),
         ]
 
     def __str__(self):
-        return ''
+        return str(self.role)
+
+    @cached_property
+    def role(self):
+        return get_role_instance(self)
+
+    def has_perm(self, perm, obj=None):
+        return self.role.has_perm(perm, obj=obj)
+
+    def get_allowed_roles(self):
+        return self.role.get_allowed_roles()
+
+    def get_allowed_member_fields(self):
+        return self.role.get_allowed_member_fields()
 
 
 class ChapterLink(models.Model):
@@ -108,7 +124,7 @@ class ChapterLink(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return f'{self.title}: {self.url}'
+        return self.url
 
     def initial_title_text(self):
         return 'We will try to figure out a title for you :)'

@@ -7,6 +7,7 @@ from chapters.test_helpers.factories import (
     OfflineTotalFactory,
 )
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 from django.db.models.signals import post_save
@@ -43,10 +44,20 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
         post_save.disconnect(update_chapter_total_on_member_change, sender=Member)
+        group = Group.objects.get(name='Chapter Facilitators')
 
         admin = User.objects.filter(username='admin').first()
         if not admin:
             admin = User.objects.create_superuser('admin', 'admin@example.com', 'a')
+
+        for n in 'abcde':
+            try:
+                u = User.objects.create_user(
+                    n, f'{n}@example.com', n, is_staff=True, is_active=True
+                )
+                u.groups.add(group)
+            except IntegrityError:
+                pass
 
         self.partner_campaigns = []
         for _ in range(5):

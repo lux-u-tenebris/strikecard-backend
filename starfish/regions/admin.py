@@ -1,11 +1,23 @@
-from chapters.models import get_chapter_for_zip
+from chapters.models import Chapter, get_chapter_for_zip
 from django.contrib import admin
 from django.urls import reverse
-from unfold.admin import ModelAdmin
+from unfold.admin import ModelAdmin, TabularInline
 
 from starfish.admin import ReadOnlyAdminMixin, pretty_button, pretty_link
 
 from .models import State, Zip
+
+
+class ChapterInline(ReadOnlyAdminMixin, TabularInline):
+    model = Chapter
+    fields = ['chapter', 'total_members']
+    readonly_fields = fields
+
+    def chapter(self, obj):
+        return pretty_link(
+            reverse('admin:chapters_chapter_change', args=[obj.id]),
+            obj.title,
+        )
 
 
 @admin.register(State)
@@ -15,6 +27,7 @@ class StateAdmin(ReadOnlyAdminMixin, ModelAdmin):
     search_fields = list_display
     fields = list_display + ['zip_codes']
     compressed_fields = True
+    inlines = [ChapterInline]
 
     def zip_codes(self, obj):
         return pretty_button(

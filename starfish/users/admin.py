@@ -1,10 +1,13 @@
+from chapters.models import ChapterRole
 from django.contrib import admin
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
 from simple_history.admin import SimpleHistoryAdmin
-from unfold.admin import ModelAdmin
+from unfold.admin import ModelAdmin, TabularInline
 from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
+
+from starfish.admin import ReadOnlyAdminMixin
 
 from .models import User
 
@@ -14,6 +17,13 @@ admin.site.unregister(Group)
 @admin.register(Group)
 class GroupAdmin(BaseGroupAdmin, ModelAdmin):
     compressed_fields = True
+
+
+class ChapterRoleInline(ReadOnlyAdminMixin, TabularInline):
+    model = ChapterRole
+    fk_name = 'user'
+    fields = ['chapter', 'role', 'added_by_user']
+    readonly_fields = fields
 
 
 @admin.register(User)
@@ -26,7 +36,7 @@ class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin, ModelAdmin):
         ('Personal info', {'fields': ('first_name', 'last_name')}),
         (
             'Permissions',
-            {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups')},
+            {'fields': ('is_active', 'is_superuser', 'groups')},
         ),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -39,7 +49,14 @@ class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin, ModelAdmin):
             },
         ),
     )
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
+    list_display = ('username', 'email', 'first_name', 'last_name')
+    list_display_links = (
+        'username',
+        'email',
+        'first_name',
+        'last_name',
+    )
     search_fields = ('username', 'email', 'first_name', 'last_name')
     ordering = ('username',)
     compressed_fields = True
+    inlines = [ChapterRoleInline]

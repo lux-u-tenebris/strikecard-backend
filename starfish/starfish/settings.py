@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 
 from configurations import Configuration, values
-from django.urls import reverse_lazy
+
+from .navigation import unfold_navigation
 
 
 class Common(Configuration):
@@ -41,7 +42,6 @@ class Common(Configuration):
         'simple_history',
         'django.contrib.admin',
         'import_export',
-        'rules',
         'rest_framework',
         'regions',
         'chapters',
@@ -56,7 +56,7 @@ class Common(Configuration):
     ]
 
     AUTHENTICATION_BACKENDS = (
-        'rules.permissions.ObjectPermissionBackend',
+        'chapters.backend.ChapterRolePermissionBackend',
         'django.contrib.auth.backends.ModelBackend',
         'allauth.account.auth_backends.AuthenticationBackend',
     )
@@ -212,7 +212,6 @@ class Common(Configuration):
         'SITE_HEADER': 'Strikecard Admin',
         'SITE_SUBHEADER': 'Operation Starfish 2.0',
         'SITE_SYMBOL': 'flare',
-        'ENVIRONMENT': lambda r: ['Dev', 'primary'],
         'SITE_DROPDOWN': [
             {
                 'title': 'Public site',
@@ -221,75 +220,7 @@ class Common(Configuration):
             },
         ],
         'SIDEBAR': {
-            'navigation': [
-                {
-                    'title': 'Navigation',
-                    'collapsible': False,
-                    'items': [
-                        {
-                            'title': 'Members',
-                            'icon': 'person',
-                            'link': reverse_lazy('admin:members_member_changelist'),
-                        },
-                        {
-                            'title': 'Chapters',
-                            'icon': 'groups',
-                            'link': reverse_lazy('admin:chapters_chapter_changelist'),
-                        },
-                        {
-                            'title': 'Partners',
-                            'icon': 'group',
-                            'link': reverse_lazy(
-                                'admin:partners_partnercampaign_changelist'
-                            ),
-                        },
-                        {
-                            'title': 'Affiliates',
-                            'icon': 'group',
-                            'link': reverse_lazy('admin:partners_affiliate_changelist'),
-                        },
-                    ],
-                },
-                {
-                    'title': 'Regions',
-                    'collapsible': True,
-                    'items': [
-                        {
-                            'title': 'States',
-                            'icon': 'map',
-                            'link': reverse_lazy('admin:regions_state_changelist'),
-                        },
-                        {
-                            'title': 'ZIP Codes',
-                            'icon': 'map',
-                            'link': reverse_lazy('admin:regions_zip_changelist'),
-                        },
-                        {
-                            'title': 'Chapter ZIPs',
-                            'icon': 'map',
-                            'link': reverse_lazy(
-                                'admin:chapters_chapterzip_changelist'
-                            ),
-                        },
-                    ],
-                },
-                {
-                    'title': 'Access',
-                    'collapsible': True,
-                    'items': [
-                        {
-                            'title': 'Users',
-                            'icon': 'person',
-                            'link': reverse_lazy('admin:users_user_changelist'),
-                        },
-                        {
-                            'title': 'Groups',
-                            'icon': 'group',
-                            'link': reverse_lazy('admin:auth_group_changelist'),
-                        },
-                    ],
-                },
-            ],
+            'navigation': unfold_navigation,
         },
     }
     DEBUG_TOOLBAR = False
@@ -305,6 +236,7 @@ class Dev(Common):
     ] + Common.MIDDLEWARE
     INTERNAL_IPS = ["127.0.0.1"]
     ALLOWED_HOSTS = values.ListValue(["localhost"])
+    UNFOLD = dict(Common.UNFOLD, ENVIRONMENT=lambda r: ['Dev', 'primary'])
     STATIC_ROOT = Common.BASE_DIR / 'static/'
     LOGGING = {
         "version": 1,
@@ -314,15 +246,28 @@ class Dev(Common):
                 "class": "logging.StreamHandler",
             },
         },
-        "root": {
-            "handlers": ["console"],
-            "level": "DEBUG",
+        "loggers": {
+            "chapters": {
+                "handlers": ["console"],
+                "level": "DEBUG",
+            },
+            "members": {
+                "handlers": ["console"],
+                "level": "DEBUG",
+            },
         },
     }
+    AUTH_PASSWORD_VALIDATORS = []  # allow any passwords
 
     # Development-specific Allauth settings - allow both OAuth and regular signup
     ACCOUNT_SIGNUP_ENABLED = True  # Re-enable regular signup for development
     ACCOUNT_ADAPTER = 'adapters.DevAccountAdapter'  # Use dev-specific adapter
+
+
+class QA(Common):
+    DEBUG = values.BooleanValue(True)
+    STATIC_ROOT = Common.BASE_DIR / 'static/'
+    UNFOLD = dict(Common.UNFOLD, ENVIRONMENT=lambda r: ['QA', 'primary'])
 
 
 class Production(Common):
@@ -330,3 +275,4 @@ class Production(Common):
     ALLOWED_HOSTS = values.ListValue([".generalstrikeus.com"])
     ACCOUNT_SIGNUP_ENABLED = False  # Disable regular signup for production
     ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+    UNFOLD = dict(Common.UNFOLD, ENVIRONMENT=lambda r: ['Live', 'danger'])
