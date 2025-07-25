@@ -63,3 +63,5 @@ validation:
     anchors: warn
     absolute_links: warn
     unrecognized_links: warn
+
+dev_addr: "localhost:8080"
