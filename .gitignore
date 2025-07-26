@@ -341,5 +341,6 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/django,linux,macos,python,windows
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+.idea
 starfish/test_profiling_results
 site/

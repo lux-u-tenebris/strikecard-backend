@@ -1,5 +1,5 @@
 import factory
-from chapters.models import Chapter, ChapterRole, ChapterSocialLink, OfflineTotal
+from chapters.models import Chapter, ChapterLink, ChapterRole, OfflineTotal
 from chapters.roles import ROLE_CLASSES
 from django.utils.text import slugify
 from factory.django import DjangoModelFactory
@@ -28,12 +28,11 @@ class ChapterRoleFactory(DjangoModelFactory):
     role_key = factory.Iterator(ROLE_CLASSES.keys())
 
 
-class ChapterSocialLinkFactory(DjangoModelFactory):
+class ChapterLinkFactory(DjangoModelFactory):
     class Meta:
-        model = ChapterSocialLink
+        model = ChapterLink
 
     chapter = factory.SubFactory(ChapterFactory)
-    platform = factory.Iterator(['Discord', 'Bluesky', 'Substack'])
     url = factory.Faker('url')
 
 
