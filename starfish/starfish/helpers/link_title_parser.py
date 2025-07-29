@@ -16,11 +16,11 @@ class LinkTitleParser(html.parser.HTMLParser):
         try:
             response = requests.get(self.url, allow_redirects=True, timeout=5)
             if 199 < response.status_code < 300:
-                logger.info(f'fetched {len(response.content)} bytes from {self.url}')
-                # Got it! go ahead and parse. Hopefully this creates a title
+                logger.info(f'Fetched {len(response.content)} bytes from {self.url}')
+                # Got it! Go ahead and parse. Hopefully this creates a title
                 self.feed(response.text)
         except requests.exceptions.RequestException:
-            logger.warning(f'Could not fetch link for chapter {self.url}')
+            logger.warning(f'Could not fetch html for {self.url}')
 
     def handle_starttag(self, tag, attrs):
         self.last_content = ''
@@ -28,7 +28,7 @@ class LinkTitleParser(html.parser.HTMLParser):
     def handle_endtag(self, tag):
         if tag == 'title' and self.title_content == '':
             self.title_content = self.last_content
-            logger.info(f'finished parsing and got title {self.title_content}')
+            logger.info(f'Finished parsing and got title {self.title_content}')
 
     def handle_data(self, data):
         self.last_content += data
