@@ -133,7 +133,7 @@ class ChapterLink(models.Model):
         if (
             not self.title or self.title == self.initial_title_text()
         ) and self._state.adding:
-            logger.info(f'searching for link title for {self}')
+            logger.info(f'Searching for link title for {self}')
             self.get_link_title_from_url()
         super().save(*args, **kwargs)
 
