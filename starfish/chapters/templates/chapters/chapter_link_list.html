@@ -1,8 +1,7 @@
 {% if object.links.exists %}
-<p>Other links:</p>
-<ul>
+<ul class="links">
     {% for link in object.links.all %}
-    <li><img src="http://{{ link.link_hostname }}/favicon.ico" height="24px" width="24px" style="margin-right: 4px; vertical-align: bottom;"><a href="{{ link.url }}">{{ link.title|default:link.url }}</a></li>
+    <li><span style="background-image: url(http://{{ link.link_hostname }}/favicon.ico);"></span><a href="{{ link.url }}">{{ link.title|default:link.url }}</a></li>
     {% endfor %}
 </ul>
 {% endif %}

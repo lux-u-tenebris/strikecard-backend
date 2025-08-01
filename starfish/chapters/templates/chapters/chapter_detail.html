@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div id="chapter-detail">
 <h1>{{ object.title }}</h1>
 <p>{{ chapter.total_members }} members</p>
 <p>{{ object.description }}</p>
+{% if object.organizing_hub_url %}
 <p>Organizing hub: <a href="{{ object.organizing_hub_url }}">{{ object.organizing_hub_url }}</a></p>
+{% endif %}
 
 {% include "chapters/chapter_link_list.html" %}
 
@@ -16,5 +19,5 @@
     {% endfor %}
 </ul>
 {% endif %}
-
+</div>
 {% endblock %}
