@@ -101,14 +101,17 @@ class ChapterRoleInline(ChapterInlineMixin, TabularInline):
 
 
 class ChapterLinkInlineForm(ModelForm):
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # logger.info(f'{self.instance}: {dir(self.instance)}')
-        if self.instance._state.adding:
-            # logger.info(f'this is a NEW entry, {dir(self.fields["title"])}')
-            self.fields['title'].disabled = True
-            self.fields['title'].initial = self.instance.initial_title_text()
-            self.fields['title'].show_hidden_initial = True
+        self.fields['title'].widget.attrs[
+            'placeholder'
+        ] = 'Leave blank to automatically generate title'
+
+    def save(self, *args, **kwargs):
+        if not self.instance.title:
+            self.instance.set_title()
+        return super().save(*args, **kwargs)
 
 
 class ChapterLinkInline(ChapterInlineMixin, TabularInline):

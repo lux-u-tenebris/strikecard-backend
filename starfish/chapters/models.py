@@ -10,7 +10,7 @@ from model_utils.models import SoftDeletableModel, TimeStampedModel
 from regions.models import State, Zip
 from simple_history.models import HistoricalRecords
 
-from starfish.helpers.link_title_parser import LinkTitleParser
+from starfish.helpers.link_title_parser import get_title_from_url
 from starfish.models import SoftDeletablePermissionManager
 
 from .roles import ROLE_CHOICES, ROLE_CLASSES, get_role_instance
@@ -112,9 +112,6 @@ class ChapterRole(models.Model):
 class ChapterLink(models.Model):
     chapter = models.ForeignKey(Chapter, on_delete=models.PROTECT, related_name='links')
     url = models.URLField('URL')
-    # Do not show title on creation
-    # Populate from entered URL by resolving HTTP request
-    # Allow editing
     title = models.CharField(max_length=255, blank=True, null=True)
     order = models.PositiveIntegerField('Order', default=0, db_index=True)
 
@@ -126,26 +123,14 @@ class ChapterLink(models.Model):
     def __str__(self):
         return self.url
 
-    def initial_title_text(self):
-        return 'We will try to figure out a title for you :)'
-
-    def save(self, *args, **kwargs):
-        if (
-            not self.title or self.title == self.initial_title_text()
-        ) and self._state.adding:
-            logger.info(f'Searching for link title for {self}')
-            self.get_link_title_from_url()
-        super().save(*args, **kwargs)
-
     @property
     def link_hostname(self):
         if self.url is None or len(self.url) == 0:
             return ''
         return urllib.parse.urlsplit(self.url).netloc
 
-    def get_link_title_from_url(self):
-        parser = LinkTitleParser(self.url)
-        self.title = parser.title_content
+    def set_title(self):
+        self.title = get_title_from_url(self.url)
 
 
 class ChapterZip(models.Model):

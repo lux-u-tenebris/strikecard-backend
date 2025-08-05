@@ -6,6 +6,10 @@ import requests
 logger = logging.getLogger(__name__)
 
 
+def get_title_from_url(url):
+    return url and LinkTitleParser(url).title_content
+
+
 class LinkTitleParser(html.parser.HTMLParser):
     last_content = ''
     title_content = ''
@@ -17,7 +21,6 @@ class LinkTitleParser(html.parser.HTMLParser):
             response = requests.get(self.url, allow_redirects=True, timeout=5)
             if 199 < response.status_code < 300:
                 logger.debug(f'Fetched {len(response.content)} bytes from {self.url}')
-                # Got it! Go ahead and parse. Hopefully this creates a title
                 self.feed(response.text)
         except requests.exceptions.RequestException:
             logger.warning(f'Could not fetch html for {self.url}')
