@@ -2,7 +2,6 @@ from django.urls import reverse_lazy
 
 unfold_navigation = [
     {
-        'title': 'Navigation',
         'collapsible': False,
         'items': [
             {
