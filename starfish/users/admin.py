@@ -56,6 +56,7 @@ class UserAdmin(BaseUserAdmin, SimpleHistoryAdmin, ModelAdmin):
         'first_name',
         'last_name',
     )
+    list_filter = ('is_active', 'is_superuser', 'groups')
     search_fields = ('username', 'email', 'first_name', 'last_name')
     ordering = ('username',)
     compressed_fields = True
