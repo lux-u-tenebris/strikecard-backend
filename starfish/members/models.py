@@ -56,8 +56,6 @@ class BaseMember(HashedMemberRecord):
         'chapters.Chapter',
         on_delete=models.PROTECT,
         related_name='%(class)ss',
-        null=True,
-        blank=True,
     )
     partner_campaign = models.ForeignKey(
         'partners.PartnerCampaign',
@@ -89,7 +87,7 @@ class BaseMember(HashedMemberRecord):
         super().save(*args, **kwargs)
 
     def assign_chapter(self):
-        if self.zip_code and not self.chapter:
+        if self.zip_code and not self.chapter_id:
             self.chapter = get_chapter_for_zip(self.zip_code)
 
     def update_email_hash(self):
