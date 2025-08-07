@@ -11,6 +11,7 @@ FACILITATOR_PERMS = [
     'chapters.view_chapterrole',
     'regions.view_state',
     'regions.view_zip',
+    'partners.view_partnercampaign',
     'users.view_user',
 ]
 
