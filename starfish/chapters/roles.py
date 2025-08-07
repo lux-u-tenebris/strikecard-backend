@@ -64,9 +64,6 @@ class BaseRole:
     def chapters_can_change_chapter_info(self, obj=None):
         return False
 
-    def chapters_can_view_chapterrole(self, obj=None):
-        return False
-
     def chapters_can_add_chapterrole(self, obj=None):
         return False
 
@@ -108,9 +105,6 @@ class ReporterPhone(BaseRole):
 
 class Reporter(ReporterEmail, ReporterPhone):
     label = 'Reporter'
-
-    def chapters_can_view_chapterrole(self, obj=None):
-        return True
 
 
 class Manager(Reporter):

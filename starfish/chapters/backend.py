@@ -8,8 +8,7 @@ logger = logging.getLogger(__name__)
 
 FACILITATOR_PERMS = [
     'chapters.view_chapter',
-    'chapters.view_role',
-    'members.view_member',
+    'chapters.view_chapterrole',
     'regions.view_state',
     'regions.view_zip',
     'users.view_user',
