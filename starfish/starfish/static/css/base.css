@@ -7,3 +7,19 @@ body{
 a {
 	color: tomato;
 }
+#chapter-detail .links {
+    list-style: none;
+    padding: 0;
+}
+#chapter-detail .links li{
+    padding: 4px 0;
+}
+#chapter-detail .links li span{
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin-right: 4px;
+    vertical-align: bottom;
+}

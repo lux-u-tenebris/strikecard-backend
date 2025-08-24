@@ -225,6 +225,17 @@ class Common(Configuration):
     }
     DEBUG_TOOLBAR = False
 
+    REST_FRAMEWORK = {
+        'DEFAULT_THROTTLE_CLASSES': [
+            'rest_framework.throttling.AnonRateThrottle',
+            'rest_framework.throttling.UserRateThrottle',
+        ],
+        'DEFAULT_THROTTLE_RATES': {
+            'anon': '100/day',  # default value, needs to be reassessed based on expected use cases
+            'user': '1000/day',  # default value, needs to be reassessed based on expected use cases
+        },
+    }
+
 
 class Dev(Common):
     DEBUG = values.BooleanValue(True)

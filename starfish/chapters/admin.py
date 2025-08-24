@@ -1,11 +1,14 @@
+import logging
+
 from chapters.models import (
     Chapter,
+    ChapterLink,
     ChapterRole,
-    ChapterSocialLink,
     ChapterZip,
     OfflineTotal,
 )
 from django.contrib import admin
+from django.forms import ModelForm
 from django.urls import reverse
 from django.utils.html import format_html
 from simple_history.admin import SimpleHistoryAdmin
@@ -13,6 +16,8 @@ from unfold.admin import ModelAdmin, TabularInline
 from unfold.contrib.filters.admin import AutocompleteSelectMultipleFilter
 
 from starfish.admin import SoftDeletableAdminMixin, pretty_button, pretty_links
+
+logger = logging.getLogger(__name__)
 
 
 class ChapterInlineMixin:
@@ -95,11 +100,29 @@ class ChapterRoleInline(ChapterInlineMixin, TabularInline):
         return super().formfield_for_choice_field(db_field, request, **kwargs)
 
 
-class ChapterSocialLinkInline(ChapterInlineMixin, TabularInline):
-    model = ChapterSocialLink
+class ChapterLinkInlineForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs[
+            'placeholder'
+        ] = 'Leave blank to automatically generate title'
+
+    def save(self, *args, **kwargs):
+        if not self.instance.title:
+            self.instance.set_title()
+        return super().save(*args, **kwargs)
+
+
+class ChapterLinkInline(ChapterInlineMixin, TabularInline):
+    model = ChapterLink
     extra = 1
     tab = True
     verbose_name = 'Link'
+    form = ChapterLinkInlineForm
+    ordering_field = 'order'
+    ordering = ['order']
+    hide_ordering_field = True
 
     def has_change_permission(self, request, obj=None):
         return request.user.has_perm('chapters.change_link', obj=obj)
@@ -140,10 +163,12 @@ class ChapterAdmin(SoftDeletableAdminMixin, SimpleHistoryAdmin, ModelAdmin):
         'description',
         'contact_email',
         'website_url',
+        'organizing_hub_url',
     ]
+
     inlines = [
         ChapterRoleInline,
-        ChapterSocialLinkInline,
+        ChapterLinkInline,
         OfflineTotalInline,
         ChapterZipInline,
     ]

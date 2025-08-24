@@ -2,7 +2,6 @@ from django.urls import reverse_lazy
 
 unfold_navigation = [
     {
-        'title': 'Navigation',
         'collapsible': False,
         'items': [
             {
@@ -21,7 +20,9 @@ unfold_navigation = [
                 'title': 'Partners',
                 'icon': 'group',
                 'link': reverse_lazy('admin:partners_partnercampaign_changelist'),
-                'permission': lambda r: r.user.has_perm('partners.view_partner'),
+                'permission': lambda r: r.user.has_perm(
+                    'partners.view_partnercampaign'
+                ),
             },
             {
                 'title': 'Affiliates',

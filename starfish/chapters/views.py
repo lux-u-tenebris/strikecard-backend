@@ -10,4 +10,4 @@ class ChapterListView(ListView):
 
 class ChapterDetailView(DetailView):
     model = Chapter
-    template_name = 'chapters/chapter_detail.html'
+    template_name = 'chapters/chapter_page.html'

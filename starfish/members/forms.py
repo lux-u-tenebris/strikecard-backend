@@ -70,4 +70,4 @@ class PendingMemberForm(forms.ModelForm):
 
     def clean_phone(self):
         phone_input = self.cleaned_data.get("phone")
-        return clean_nanp_phone(phone_input, forms.ValidationError)
+        return phone_input and clean_nanp_phone(phone_input, forms.ValidationError)
