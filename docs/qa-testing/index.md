@@ -41,13 +41,11 @@ Next, learn about how to setup and run the Django server in the [Starting and Ru
 
 ### Install on MacOS
 
-TBD
+TBD - If you have an Apple computer, contact us in the Discord and we can help you get configured. This will also help us add to the documentation.
 
 ### Install on Windows
 
-There are multiple options for working with Linux on Windows.
-
-- [Windows Subsystem for Linux]
+The easiest option is to use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install). When you have it installed, return to [Install on Linux](#install-on-linux) to install the Strikecard Backend on your computer.
 
 ## Starting and Running the Server
 
@@ -66,7 +64,8 @@ To get started testing, you'll first need to [Install Starfish](#installation) a
 1. Open the server's web page on your local computer.
     - URL: <https://localhost:8000>
 1. Perform tests as directed by the testing instructions.
-    - Instructions: TBD
+    - [Overview](https://drive.proton.me/urls/80CBPE161C#DWR3C88Fbkhg)
+    - [Plan](https://drive.proton.me/urls/E4DZGACKH8#3Xe9b4vkyzIM)
 
 ### Logging in as Admin
 
