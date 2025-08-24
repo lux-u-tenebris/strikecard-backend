@@ -2,12 +2,11 @@ import random
 
 from chapters.models import Chapter
 from chapters.test_helpers.factories import (
+    ChapterLinkFactory,
     ChapterRoleFactory,
-    ChapterSocialLinkFactory,
     OfflineTotalFactory,
 )
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Group
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 from django.db.models.signals import post_save
@@ -44,7 +43,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         User = get_user_model()
         post_save.disconnect(update_chapter_total_on_member_change, sender=Member)
-        group = Group.objects.get(name='Chapter Facilitators')
 
         admin = User.objects.filter(username='admin').first()
         if not admin:
@@ -52,10 +50,9 @@ class Command(BaseCommand):
 
         for n in 'abcde':
             try:
-                u = User.objects.create_user(
+                User.objects.create_user(
                     n, f'{n}@example.com', n, is_staff=True, is_active=True
                 )
-                u.groups.add(group)
             except IntegrityError:
                 pass
 
@@ -82,7 +79,7 @@ class Command(BaseCommand):
                     pass
 
             for _ in range(4):
-                ChapterSocialLinkFactory(chapter=chapter)
+                ChapterLinkFactory(chapter=chapter)
 
             for _ in range(random.randint(0, 2)):
                 OfflineTotalFactory(

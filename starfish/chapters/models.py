@@ -1,3 +1,6 @@
+import logging
+import urllib.parse
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -7,9 +10,12 @@ from model_utils.models import SoftDeletableModel, TimeStampedModel
 from regions.models import State, Zip
 from simple_history.models import HistoricalRecords
 
+from starfish.helpers.link_title_parser import get_title_from_url
 from starfish.models import SoftDeletablePermissionManager
 
 from .roles import ROLE_CHOICES, ROLE_CLASSES, get_role_instance
+
+logger = logging.getLogger(__name__)
 
 
 def get_chapter_for_zip(zip_code):
@@ -37,6 +43,7 @@ class Chapter(TimeStampedModel, SoftDeletableModel):
     website_url = models.URLField('Website', blank=True, null=True)
     nearby_chapters = models.ManyToManyField('self', blank=True)
     total_members = models.IntegerField(default=0)
+    organizing_hub_url = models.URLField('Organizing Hub', blank=True, null=True)
 
     objects = SoftDeletablePermissionManager()
     history = HistoricalRecords()
@@ -102,17 +109,28 @@ class ChapterRole(models.Model):
         return self.role.get_allowed_member_fields()
 
 
-class ChapterSocialLink(models.Model):
-    chapter = models.ForeignKey(
-        Chapter, on_delete=models.PROTECT, related_name='social_links'
-    )
-    platform = models.CharField(max_length=50)
+class ChapterLink(models.Model):
+    chapter = models.ForeignKey(Chapter, on_delete=models.PROTECT, related_name='links')
     url = models.URLField('URL')
+    title = models.CharField(max_length=255, blank=True, null=True)
+    order = models.PositiveIntegerField('Order', default=0, db_index=True)
 
     history = HistoricalRecords()
 
+    class Meta:
+        ordering = ['order']
+
     def __str__(self):
         return self.url
+
+    @property
+    def link_hostname(self):
+        if self.url is None or len(self.url) == 0:
+            return ''
+        return urllib.parse.urlsplit(self.url).netloc
+
+    def set_title(self):
+        self.title = get_title_from_url(self.url)
 
 
 class ChapterZip(models.Model):

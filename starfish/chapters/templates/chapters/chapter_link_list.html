@@ -1,0 +1,7 @@
+{% if object.links.exists %}
+<ul class="links">
+    {% for link in object.links.all %}
+    <li><span style="background-image: url(http://{{ link.link_hostname }}/favicon.ico);"></span><a href="{{ link.url }}">{{ link.title|default:link.url }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
