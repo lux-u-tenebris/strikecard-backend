@@ -40,10 +40,11 @@ if [[ -d "$expected_name" ]]; then
     cd "$expected_name"
 fi
 
+# "|| :" means execute no-op, this ensures errors from rev-parse are swallowed
 repo="$(git rev-parse --show-toplevel 2> /dev/null)" || :
 if [[ -z "$repo" ]]; then
     # clone the repo down
-    git -C "/$expected_name" clone "https://github.com/GS-US/strikecard-backend.git"
+    git clone "https://github.com/GS-US/strikecard-backend.git" "$expected_name"
     cd "$expected_name"
 fi
 
