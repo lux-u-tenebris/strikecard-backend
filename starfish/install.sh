@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+cd "$(dirname "$0")"
+
 if [ ! -f ./.env ]; then
     cp .env.template .env
     read -p "You will need to edit .env to add your secret keys. Press Enter to confirm you understand and continue."
