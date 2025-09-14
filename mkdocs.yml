@@ -35,6 +35,7 @@ markdown_extensions:
 plugins:
   - search
   - blog:
+      blog_dir: blog-strikecard-backend
       archive_date_format: MM/yyyy
   - meta
   - git-revision-date-localized:
@@ -49,7 +50,7 @@ plugins:
 nav:
   - Home: index.md
   - Blog:
-      - blog/index.md
+      - blog-strikecard-backend/index.md
   - Devops:
       - index.md
   - Testing:
