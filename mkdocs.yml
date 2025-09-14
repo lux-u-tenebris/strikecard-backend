@@ -40,6 +40,11 @@ plugins:
       archive_date_format: MM/yyyy
       post_excerpt: required
       post_readtime: false
+  - blog:
+      blog_dir: blog-technology-team
+      archive_date_format: MM/yyyy
+      post_excerpt: required
+      post_readtime: false
   - git-revision-date-localized:
       type: date
       strict: false
@@ -52,8 +57,11 @@ plugins:
 
 nav:
   - Home: index.md
-  - New Strikecard Meeting Notes:
-      - blog-new-strike-card/index.md
+  - Meeting Notes:
+      - New Strike Card:
+          - blog-new-strike-card/index.md
+      - Technology Team:
+          - blog-technology-team/index.md
   - Business Cases: business-cases.md
   - People: people.md
 
