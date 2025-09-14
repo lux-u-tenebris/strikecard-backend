@@ -13,6 +13,7 @@ theme:
     - navigation.instant
     - content.code.copy
     - content.action.edit
+  custom_dir: theme/
 # favicon: images/favicon.png
 # logo: images/logo.png
 
@@ -68,3 +69,6 @@ validation:
     unrecognized_links: warn
 
 dev_addr: "localhost:8080"
+
+watch:
+  - theme

@@ -5,6 +5,15 @@ date:
 
 # New Strike Card - Meeting 2025-09-11
 
+Team updates.
+
+- Audit logging
+- Roles and so forth
+- Training docs
+- Getting notes caught up
+
+<!-- more -->
+
 ## Attendees
 
 - TiredDragon

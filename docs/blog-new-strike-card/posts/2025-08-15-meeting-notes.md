@@ -5,6 +5,14 @@ date:
 
 # New Strike Card - Meeting 2025-08-15
 
+Team updates
+
+- User-facing docs
+- Project management
+- Testing docs
+
+<!-- more -->
+
 ## Attendees
 
 Jason, Raven Deadheard, Russian Misinformation Bot, Jeff, James, corwin (MN), Bear

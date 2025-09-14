@@ -5,8 +5,21 @@ date:
 
 # New Strike Card - Meeting 2025-06-19
 
-**Attendees:** Corwin, Jason, Jeff, Sofia, William
-**Purpose:** Jeff called meeting to discuss hosting and programming.
+Discussions around tech stack organization, hosting, and tools.
+
+- GitHub ownership
+- GitHub vs self-hosting
+- Security methodology
+- Admin productivity
+- User auth and oauth
+- Hosting and domains
+- System architecture
+
+<!-- more -->
+
+## Attendees
+
+Corwin, Jason, Jeff, Sofia, William
 
 ## Action Items
 

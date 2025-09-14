@@ -5,6 +5,14 @@ date:
 
 # New Strike Card - Meeting 2025-08-28
 
+Team updates.
+
+- Audit log
+- Prod server setup scripting
+- Ansible configs
+
+<!-- more -->
+
 ## Attendees
 
 Jeff, Joe, Hiram, Dragon, Jason, Corwin

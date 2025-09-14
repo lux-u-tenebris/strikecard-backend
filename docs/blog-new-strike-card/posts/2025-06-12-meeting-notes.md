@@ -14,6 +14,8 @@ Today we met on zoom and had our kick off meeting. We discussed the following:
 - Discussed hosting options including risks
 - Assigned action items (see below)
 
+<!-- more -->
+
 ## Attendees
 
 Azurp, Corwin, Dragon, Ellie, Jason, JD, Jeff, Julia, Sofia, William

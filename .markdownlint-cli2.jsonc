@@ -3,6 +3,7 @@
   "ignores": [
     ".git/",
     ".venv/",
-    "starfish/.venv/"
+    "starfish/.venv/",
+    "theme/"
   ]
 }
