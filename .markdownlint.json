@@ -39,7 +39,9 @@
     "list_items": true
   },
   "MD033": {
-    "allowed_elements": []
+    "allowed_elements": [
+      "div"
+    ]
   },
   "MD035": {
     "style": "---"

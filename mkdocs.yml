@@ -6,11 +6,11 @@ theme:
   palette:
     primary: black
     accent: indigo
-  search_index_only: true
   language: en
   features:
     - navigation.indexes
     - navigation.instant
+    - navigation.top
     - content.code.copy
     - content.action.edit
 # favicon: images/favicon.png
@@ -24,6 +24,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.keys
@@ -52,11 +55,13 @@ nav:
   - Blog:
       - blog-strikecard-backend/index.md
   - Devops:
-      - index.md
+      - development/index.md
   - Testing:
-      - index.md
+      - qa-testing/index.md
   - Business Cases: business-cases.md
   - People: people.md
+  - Contributing:
+      - docs-contributing.md
 
 validation:
   nav:

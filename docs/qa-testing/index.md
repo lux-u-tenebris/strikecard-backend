@@ -12,9 +12,21 @@ Installation currently requires that you understand how to use the Linux command
 
 If you are on Windows or MacOS, you will also need to configure your system to allow installation, then return to the Linux section.
 
-- [Linux](#install-on-linux)
-- [MacOS](#install-on-macos)
-- [Windows](#install-on-windows)
+<div class="grid cards" markdown>
+
+- :fontawesome-brands-windows: [**Windows**](#install-on-windows)
+- :fontawesome-brands-windows: [**MacOS**](#install-on-macos)
+- :fontawesome-brands-linux: [**Linux**](#install-on-linux)
+
+</div>
+
+### Install on Windows
+
+The easiest option is to use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install). When you have it installed, proceed to [Install on Linux](#install-on-linux) to install the Strikecard Backend on your computer.
+
+### Install on MacOS
+
+TBD - If you have an Apple computer, contact us in the Discord and we can help you get configured. This will also help us add to the documentation.
 
 ### Install on Linux
 
@@ -38,14 +50,6 @@ Once the above dependencies are installed, your computer is ready to install the
     - `./install.sh`
 
 Next, learn about how to setup and run the Django server in the [Starting and Running the Server Section](#starting-and-running-the-server).
-
-### Install on MacOS
-
-TBD - If you have an Apple computer, contact us in the Discord and we can help you get configured. This will also help us add to the documentation.
-
-### Install on Windows
-
-The easiest option is to use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install). When you have it installed, return to [Install on Linux](#install-on-linux) to install the Strikecard Backend on your computer.
 
 ## Starting and Running the Server
 
