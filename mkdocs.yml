@@ -35,7 +35,7 @@ markdown_extensions:
 plugins:
   - search
   - blog:
-      blog_dir: blog-strikecard-backend
+      blog_dir: blog-new-strike-card
       archive_date_format: MM/yyyy
   - meta
   - git-revision-date-localized:
@@ -49,8 +49,8 @@ plugins:
 
 nav:
   - Home: index.md
-  - Blog:
-      - blog-strikecard-backend/index.md
+  - New Strikecard Meeting Notes:
+      - blog-new-strike-card/index.md
   - Business Cases: business-cases.md
   - People: people.md
 
