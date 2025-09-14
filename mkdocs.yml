@@ -37,11 +37,13 @@ plugins:
   - blog:
       blog_dir: blog-new-strike-card
       archive_date_format: MM/yyyy
-  - meta
+      post_excerpt: required
+      post_readtime: false
   - git-revision-date-localized:
       type: date
       strict: false
   - glightbox
+  - meta
   - table-reader:
       data_path: docs
   - redirects:
