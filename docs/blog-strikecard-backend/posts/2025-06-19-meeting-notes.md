@@ -3,7 +3,7 @@ date:
     created: 2025-06-19T18:00:00-05:00
 ---
 
-# 2025.06.19 - OS2.0 Meeting Notes
+# New Strike Card - Meeting 2025-06-19
 
 **Attendees:** Corwin, Jason, Jeff, Sofia, William
 **Purpose:** Jeff called meeting to discuss hosting and programming.

@@ -3,7 +3,7 @@ date:
     created: 2025-06-12T18:00:00-05:00
 ---
 
-# OS2.0 Meeting 2025-06-12
+# New Strike Card - Meeting 2025-06-12
 
 Today we met on zoom and had our kick off meeting. We discussed the following:
 

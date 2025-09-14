@@ -3,7 +3,7 @@ date:
     created: 2025-08-15T18:00:00-05:00
 ---
 
-# OS2.0 Meeting 2025-08-15
+# New Strike Card - Meeting 2025-08-15
 
 ## Attendees
 
