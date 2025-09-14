@@ -36,17 +36,53 @@ mkdocs serve
 
 ### Docs Configuration
 
-Defined in [`mkdocs.yml`](./mkdocs.yml). Controls navigation layout in the rendered docs.
+Defined in [`mkdocs.yml`](https://github.com/GS-US/strikecard-backend/blob/main/mkdocs.yml). Controls navigation layout in the rendered docs.
 
 ### Docs Content
 
-Defined in [`docs/`](docs/).
+Defined in [`docs/`](https://github.com/GS-US/strikecard-backend/tree/main/docs).
 
-#### Blog, News, and Notes
+#### Blogs for Meeting Notes
 
-Please give a date-based name with a title like `yyyy-mm-dd-title.md` and put in
-[`docs/blog/posts/`](docs/blog/posts/).
+Each blog has a directory named like `blog-new-strike-card`. The part after `blog-` is the blog title. When adding a new file, put it under `blog-title/posts/` with a date-prefixed name using ISO dates, i.e., `yyyy-mm-dd`.
 
-## Archival Scripts
+For meeting notes, use the pattern `yyyy-mm-dd-meeting-notes.md`.
 
-See the [Archive README](archive/README.md).
+All blog files must start with front matter including the creation date, like the following. Use a full ISO datetime with your timezone offset.
+
+```yaml
+---
+date:
+    created: 2025-12-31T12:34:56-05:00
+---
+```
+
+After the front matter comes a level 1 heading like `# <blog-title> - Meeting yyyy-mm-dd`. A new Strikecard meeting note would be placed in `/docs/blog-new-strike-card/posts/2025-12-31-meeting-notes.md`.
+
+Include a text-based or unordered list summary of the meeting and agenda. After the summary, all blog posts require `<!-- more -->` to indicate the summary cutoff.
+
+Here is a full example, putting it all together.
+
+```markdown
+---
+date:
+    created: 2025-12-31T12:34:56-05:00
+---
+
+# New Strike Card - Meeting 2025-12-31
+
+Today we talked about some strike card related things.
+
+- Thing 1
+- Thing 2
+
+<!-- more -->
+
+## A Subheading
+
+And the rest...
+```
+
+## Archival Script
+
+See the [Archive README](https://github.com/GS-US/strikecard-backend/blob/main/archive/README.md).
