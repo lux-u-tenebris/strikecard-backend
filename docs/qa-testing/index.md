@@ -6,7 +6,7 @@ These guides assume you have a basic understanding of Linux-style command lines.
 
 If you wish to also contribute fixes for bugs, please see our [Development Section](../development/index.md).
 
-## Installation
+## Strike Card Installation
 
 Installation currently requires that you understand how to use the Linux command line to run basic commands. You'll first need to download the install file from <https://github.com/GS-US/strikecard-backend/raw/refs/heads/main/install.sh>.
 
@@ -49,21 +49,21 @@ Once the above dependencies are installed, your computer is ready to install the
 1. Run the installer.
     - `./install.sh`
 
-Next, learn about how to setup and run the Django server in the [Starting and Running the Server Section](#starting-and-running-the-server).
+Next, learn about how to setup and run the Django server in the [Starting and Running the Strike Card Server Locally Section](#starting-and-running-the-strike-card-server-locally).
 
-## Starting and Running the Server
+## Starting and Running the Strike Card Server Locally
 
-Before testing, be sure you've [Installed Starfish](#installation).
+Before testing, be sure you've [Installed Starfish](#strike-card-installation).
 
 Each time you start a session you'll need to be sure the server is running. To test if the server is running, navigate to <https://localhost:8000> in your browser. If you reach a page with "The General Strike", the server is already running and you do not need to start it. If so, please skip to the end of this section.
 
 Otherwise, to start the server, run `docker run app`. Doing so will cause the server to run in the foreground of the current terminal and block input. Any additional commands will need to run in a separate terminal.
 
-Either way, please continue to the [Testing Section](#testing).
+Either way, please continue to the [Testing Section](#testing-the-strike-card-server).
 
-## Testing
+## Testing the Strike Card Server
 
-To get started testing, you'll first need to [Install Starfish](#installation) and [Start the Server](#starting-and-running-the-server). Once those steps are done, proceed with the following instructions.
+To get started testing, you'll first need to [Install Starfish](#strike-card-installation) and [Start the Server](#starting-and-running-the-strike-card-server-locally). Once those steps are done, proceed with the following instructions.
 
 1. Open the server's web page on your local computer.
     - URL: <https://localhost:8000>
