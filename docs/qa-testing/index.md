@@ -37,6 +37,11 @@ Before running the installer, you'll need to install some dependencies.
     - Verify installation by running `git --version`.
 - [Install Docker](https://docs.docker.com/engine/install/).
     - Docker Compose is also required, and installed using the instructions at the above "Install Docker" link.
+- [Run post-Docker-install Steps](https://docs.docker.com/engine/install/linux-postinstall/)
+    - Create the `docker` group by running `sudo groupadd docker`
+    - Add yourself to the `docker` group by running `sudo usermod -aG docker $USER`
+    - Close your current terminal and start a new terminal to pick up the changes.
+    - Verify success by running `docker run hello-world`
 
 Once the above dependencies are installed, your computer is ready to install the Starfish project. Please follow the instructions below.
 
